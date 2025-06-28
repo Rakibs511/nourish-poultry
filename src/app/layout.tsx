@@ -14,9 +14,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nourish Poultry",
-  description: "Leading poultry and aquaculture solutions in Bangladesh",
-};
+  title: 'Nourish Bangladesh',
+  description: 'Leading poultry and aquaculture company in Bangladesh',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+    other: {
+      rel: 'apple-touch-icon-precomposed',
+      url: '/favicon.ico',
+    },
+  },
+}
 
 export default function RootLayout({
   children,
