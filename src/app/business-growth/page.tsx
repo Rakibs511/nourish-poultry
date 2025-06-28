@@ -232,7 +232,7 @@ export default function BusinessGrowth() {
               Our <span className="text-orange-600">Growth Journey</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Key milestones that shaped our company's evolution and success
+              Key milestones that shaped our company&apos;s evolution and success
             </p>
           </motion.div>
 

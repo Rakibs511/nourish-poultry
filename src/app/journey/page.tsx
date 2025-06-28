@@ -50,15 +50,6 @@ export default function Journey() {
     }
   ]
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 60 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.8, ease: "easeOut" }
-    }
-  }
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
       {/* Hero Section */}
@@ -103,7 +94,7 @@ export default function Journey() {
               <p className="text-xl text-gray-600 leading-relaxed mb-8">
                 The power of mitigating socio-economic stress coupled with high growth 
                 potentiality drives our mission to create sustainable solutions for 
-                Bangladesh's agricultural future.
+                Bangladesh&apos;s agricultural future.
               </p>
               
               <div className="flex items-center space-x-6">

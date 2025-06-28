@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useRef } from 'react'
 import Link from 'next/link'
 import { 
   ArrowLeftIcon, 
@@ -105,7 +104,7 @@ export default function Download() {
             
             <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
               Access our comprehensive library of brochures, technical documents, 
-              and resources to learn more about Nourish Bangladesh's products and services.
+              and resources to learn more about Nourish Bangladesh&apos;s products and services.
             </p>
           </motion.div>
         </div>
@@ -188,7 +187,7 @@ export default function Download() {
               Need More <span className="text-orange-600">Information?</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Can't find what you're looking for? Contact us for custom documents or additional resources
+              Can&apos;t find what you&apos;re looking for? Contact us for custom documents or additional resources
             </p>
           </motion.div>
 

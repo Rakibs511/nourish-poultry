@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
+import { useInView,Variants  } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -11,7 +11,7 @@ export default function PeoplePlacePlanet() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
-  const fadeInUp = {
+  const fadeInUp:Variants = {
     hidden: { opacity: 0, y: 60 },
     visible: { 
       opacity: 1, 

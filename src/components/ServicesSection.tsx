@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Link from 'next/link'
@@ -52,7 +52,7 @@ const ServicesSection = () => {
     }
   }
 
-  const cardVariants = {
+  const cardVariants:Variants = {
     hidden: { 
       opacity: 0, 
       y: 60,
@@ -69,7 +69,7 @@ const ServicesSection = () => {
     }
   }
 
-  const iconVariants = {
+  const iconVariants:Variants = {
     hover: {
       scale: 1.2,
       rotate: [0, -10, 10, -10, 0],
@@ -112,7 +112,7 @@ const ServicesSection = () => {
           animate={isInView ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
         >
-          {services.map((service, index) => (
+          {services.map((service) => (
             <motion.div
               key={service.title}
               variants={cardVariants}

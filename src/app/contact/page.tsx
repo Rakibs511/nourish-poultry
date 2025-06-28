@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import { 
   ArrowLeftIcon, 
@@ -75,7 +75,7 @@ export default function Contact() {
             
             <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
               Get in touch with us for any inquiries about our products, services, 
-              or partnership opportunities. We're here to help!
+              or partnership opportunities. We&apos;re here to help!
             </p>
           </motion.div>
         </div>

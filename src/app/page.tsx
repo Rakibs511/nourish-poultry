@@ -5,11 +5,11 @@ import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <HeroSlider />
-      <ServicesSection />
-      <BusinessActivities />
-      <Footer />
-    </div>
+      <main className="min-h-screen">
+        <HeroSlider />
+        <ServicesSection />
+        <BusinessActivities />
+        <Footer />
+      </main>
   );
 }

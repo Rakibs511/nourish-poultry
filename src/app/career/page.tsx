@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useRef } from 'react'
 import Link from 'next/link'
 import { 
   ArrowLeftIcon, 
@@ -114,8 +113,8 @@ export default function Career() {
               </h1>
               
               <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                Join our mission to transform Bangladesh's agricultural landscape. 
-                Be part of a team that's creating sustainable solutions and making 
+                Join our mission to transform Bangladesh&apos;s agricultural landscape. 
+                Be part of a team that&apos;s creating sustainable solutions and making 
                 a real difference in communities across the nation.
               </p>
               
@@ -353,7 +352,7 @@ export default function Career() {
               Ready to Join Our Team?
             </h2>
             <p className="text-xl text-orange-100 mb-8">
-              Don't see the perfect role? Send us your resume and we'll keep you in mind for future opportunities.
+              Don&apos;t see the perfect role? Send us your resume and we&apos;ll keep you in mind for future opportunities.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

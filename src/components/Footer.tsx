@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -40,26 +40,13 @@ const Footer = () => {
     "/images/thumb/7.jpg"
   ]
 
-  const sectionVariants = {
+  const sectionVariants:Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
       transition: { duration: 0.6, ease: "easeOut" }
     }
-  }
-
-  const linkVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: (i: number) => ({
-      opacity: 1,
-      x: 0,
-      transition: {
-        delay: i * 0.1,
-        duration: 0.4,
-        ease: "easeOut"
-      }
-    })
   }
 
   return (
@@ -330,8 +317,14 @@ const Footer = () => {
             }}
             className="absolute w-24 h-24 bg-orange-600 rounded-full opacity-10"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`
+              left: '50%',
+              top: '50%'
+            }}
+            ref={(el) => {
+              if (el && typeof window !== 'undefined') {
+                el.style.left = `${Math.random() * 100}%`;
+                el.style.top = `${Math.random() * 100}%`;
+              }
             }}
           />
         ))}

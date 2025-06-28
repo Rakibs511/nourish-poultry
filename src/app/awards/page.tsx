@@ -444,7 +444,7 @@ export default function Awards() {
                 </div>
                 
                 <blockquote className="text-gray-600 italic leading-relaxed">
-                  "{testimonial.quote}"
+                  &quot;{testimonial.quote}&quot;
                 </blockquote>
                 
                 <div className="flex text-amber-400 mt-4">

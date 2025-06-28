@@ -93,7 +93,7 @@ export default function Vision() {
               
               <p className="text-xl text-gray-600 leading-relaxed mb-8">
                 From the very beginning, the mission of Nourish is to create the strongest 
-                brand value in Bangladesh's agricultural sector through innovation, quality, 
+                brand value in Bangladesh&apos;s agricultural sector through innovation, quality, 
                 and sustainable practices.
               </p>
             </motion.div>
@@ -195,7 +195,7 @@ export default function Vision() {
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
                   To provide high-quality, sustainable agricultural products and services 
                   that improve food security, support local communities, and contribute 
-                  to Bangladesh's economic growth.
+                  to Bangladesh&apos;s economic growth.
                 </p>
                 
                 <div className="space-y-3">
@@ -279,7 +279,7 @@ export default function Vision() {
               Leadership <span className="text-orange-600">Commitment</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our leadership team is committed to driving positive change in Bangladesh's agricultural landscape
+              Our leadership team is committed to driving positive change in Bangladesh&apos;s agricultural landscape
             </p>
           </motion.div>
 
@@ -327,7 +327,7 @@ export default function Vision() {
               Join Us in Our Mission
             </h2>
             <p className="text-xl text-orange-100 mb-8">
-              Together, we can build a more sustainable and prosperous future for Bangladesh's agriculture
+              Together, we can build a more sustainable and prosperous future for Bangladesh&apos;s agriculture
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

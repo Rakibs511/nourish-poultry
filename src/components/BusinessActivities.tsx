@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion,Variants  } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import Link from 'next/link'
@@ -74,7 +74,7 @@ const BusinessActivities = () => {
     }
   }
 
-  const cardVariants = {
+  const cardVariants:Variants = {
     hidden: { 
       opacity: 0, 
       y: 50,
@@ -187,8 +187,8 @@ const BusinessActivities = () => {
                             initial={{ scale: 0, x: 0, y: 0 }}
                             animate={{
                               scale: [0, 1, 0],
-                              x: [0, (Math.random() - 0.5) * 100],
-                              y: [0, (Math.random() - 0.5) * 100],
+                              x: [0, ((i % 2 ? 1 : -1) * 50)],
+                              y: [0, ((i % 2 ? -1 : 1) * 50)],
                             }}
                             transition={{
                               duration: 1.5,

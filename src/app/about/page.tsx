@@ -5,7 +5,7 @@ import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowLeftIcon, UserGroupIcon, BuildingOfficeIcon, GlobeAsiaAustraliaIcon } from '@heroicons/react/24/outline'
+import { ArrowLeftIcon } from '@heroicons/react/24/outline'
 
 export default function About() {
   const ref = useRef(null)
@@ -39,29 +39,6 @@ export default function About() {
       icon: "/images/icon-services/dna.png",
       href: "/dna", 
       color: "from-orange-400 to-orange-600"
-    }
-  ]
-
-  const stats = [
-    {
-      number: "2015",
-      label: "Established",
-      icon: <BuildingOfficeIcon className="w-8 h-8" />
-    },
-    {
-      number: "1000+",
-      label: "Happy Customers",
-      icon: <UserGroupIcon className="w-8 h-8" />
-    },
-    {
-      number: "50+",
-      label: "Districts Served",
-      icon: <GlobeAsiaAustraliaIcon className="w-8 h-8" />
-    },
-    {
-      number: "99.5%",
-      label: "Quality Standard",
-      icon: <BuildingOfficeIcon className="w-8 h-8" />
     }
   ]
 

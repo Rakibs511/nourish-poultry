@@ -72,34 +72,6 @@ const HeroSlider = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
   }
 
-  const titleVariants = {
-    hidden: { opacity: 0, x: -100, scale: 0.8 },
-    visible: (i: number) => ({
-      opacity: 1,
-      x: 0,
-      scale: 1,
-      transition: {
-        delay: i * 0.3,
-        duration: 0.8,
-        ease: "easeOut"
-      }
-    }),
-    exit: { opacity: 0, x: 100, scale: 0.8, transition: { duration: 0.5 } }
-  }
-
-  const imageVariants = {
-    hidden: { opacity: 0, scale: 1.2 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 1.2,
-        ease: "easeOut"
-      }
-    },
-    exit: { opacity: 0, scale: 0.8, transition: { duration: 0.5 } }
-  }
-
   return (
     <div
       className="relative h-screen overflow-hidden"
