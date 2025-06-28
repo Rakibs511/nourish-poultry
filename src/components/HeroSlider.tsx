@@ -175,7 +175,7 @@ const HeroSlider = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-white cursor-pointer z-50 group"
+        className="absolute bottom-[130px] left-1/2 transform -translate-x-1/2 flex flex-col items-center text-white cursor-pointer z-50 group bg-white/10 backdrop-blur-sm p-4 rounded-full hover:bg-white/20 transition-all duration-300 w-60 shadow-lg hover:shadow-xl"
       >
         <span className="text-sm font-medium mb-2 group-hover:text-orange-400 transition-colors">Scroll Down</span>
         <ChevronDoubleDownIcon className="w-6 h-6 animate-bounce group-hover:text-orange-400 transition-colors" />
