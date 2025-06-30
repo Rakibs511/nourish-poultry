@@ -231,11 +231,9 @@ const Header = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="lg:hidden p-2 rounded-md text-gray-700 hover:text-orange-600 focus:outline-none"
           >
-            {isMenuOpen ? (
-              <XMarkIcon className="h-6 w-6" />
-            ) : (
+            {!isMenuOpen ?  (
               <Bars3Icon className="h-6 w-6" />
-            )}
+            ): null}
           </button>
         </div>
       </div>
