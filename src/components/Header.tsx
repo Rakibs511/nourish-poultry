@@ -100,10 +100,10 @@ const Header = () => {
         opacity: isVisible ? 1 : 0 
       }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="bg-white/95 backdrop-blur-sm shadow-lg fixed top-0 left-0 right-0 z-50"
+      className="bg-white/95 backdrop-blur-sm shadow-lg fixed top-0 left-0 right-0 z-50 h-[48px] sm:h-auto"
     >
       {/* Top Widget Bar */}
-      <div className="bg-orange-50/80 backdrop-blur-sm py-2">
+      <div className="bg-orange-50/80 backdrop-blur-sm py-2 hidden sm:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             <div className="text-sm text-gray-600">
