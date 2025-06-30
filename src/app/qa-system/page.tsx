@@ -117,7 +117,7 @@ export default function QASystem() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 60 }}
+              initial={{ opacity: 0, x: -60 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
@@ -169,8 +169,8 @@ export default function QASystem() {
             {qaSteps.map((step, index) => (
               <motion.div
                 key={step.step}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -60 : 60 }}
-                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: index % 2 === 0 ? -60 : 60 }}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -60 : -60 }}
+                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: index % 2 === 0 ? -60 : -60 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
               >
@@ -280,7 +280,7 @@ export default function QASystem() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 60 }}
+              initial={{ opacity: 0, x: -60 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
