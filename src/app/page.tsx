@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
-      <main className="min-h-screen -mt-[60px] sm:-mt-0">
+      <main className="min-h-screen md:-mt-[60px] sm:-mt-0">
         <HeroSlider />
         <ServicesSection />
         <BusinessActivities />

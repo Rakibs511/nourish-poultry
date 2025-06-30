@@ -112,7 +112,7 @@ export default function Tilapia() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white pt-24">
+    <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-50 via-white to-orange-50">
         <div className="absolute inset-0 bg-gradient-to-br from-orange-100 via-orange-50 to-transparent opacity-60" />
@@ -539,7 +539,7 @@ export default function Tilapia() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-500 via-orange-500 to-orange-600 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-b from-gray-800 to-gray-900 relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

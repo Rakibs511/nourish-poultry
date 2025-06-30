@@ -4,8 +4,10 @@
 @tailwind utilities;
 
 /* Add padding for fixed navbar */
-.main-content {
-  padding-top: 96px;
+@media (min-width: 640px) {
+  .main-content {
+    padding-top: 90px;
+  }
 }
 
 /* Fixed navbar styles */
@@ -19,7 +21,7 @@
   background-color: rgba(255, 255, 255, 0.95);
 }
 
-/* Custom styles for Nourish Poultry */
+/* Custom styles */
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -59,15 +61,17 @@
   }
   
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #f97316;
+    background: #1b2535;
     border-radius: 4px;
     transition: background 0.3s ease;
   }
   
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #ea580c;
+    background: #253247;
   }
 }
+
+
 
 @layer utilities {
   /* Animation utilities */

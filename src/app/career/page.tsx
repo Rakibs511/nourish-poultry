@@ -340,7 +340,7 @@ export default function Career() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-500 to-orange-600">
+      <section className="py-20 bg-gradient-to-b from-gray-800 to-gray-900">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
