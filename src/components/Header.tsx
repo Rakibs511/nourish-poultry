@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
@@ -8,6 +8,21 @@ import Image from 'next/image'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  // Handle body scroll lock
+  const toggleBodyScroll = useCallback((shouldLock: boolean) => {
+    if (shouldLock) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+  }, [])
+
+  // Update body scroll when menu state changes
+  useEffect(() => {
+    toggleBodyScroll(isMenuOpen)
+    return () => toggleBodyScroll(false)
+  }, [isMenuOpen, toggleBodyScroll])
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
@@ -123,8 +138,8 @@ const Header = () => {
       </div>
 
       {/* Main Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+        <div className="flex justify-between items-center h-12 sm:h-14 lg:h-16">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -136,7 +151,7 @@ const Header = () => {
                 alt="Nourish Bangladesh"
                 width={200}
                 height={80}
-                className="h-16 w-auto"
+                className="h-8 w-auto sm:h-9 md:h-10 lg:h-12"
                 priority
               />
             </Link>
@@ -229,13 +244,31 @@ const Header = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden bg-white border-t border-gray-200 overflow-hidden"
+            initial={{ x: '-100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '-100%' }}
+            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+            className="lg:hidden fixed top-0 left-0 w-[80%] min-h-screen bg-white shadow-xl z-50 overflow-y-auto"
           >
-            <div className="px-4 py-2 space-y-1">
+            <div className="p-4 bg-orange-50 flex justify-between items-center">
+              <div className="flex-1">
+                <Image
+                  src="/images/logo.png"
+                  alt="Nourish Bangladesh"
+                  width={150}
+                  height={60}
+                  className="h-8 w-auto"
+                  priority
+                />
+              </div>
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="p-2 rounded-md text-gray-700 hover:text-orange-600 focus:outline-none"
+              >
+                <XMarkIcon className="h-6 w-6" />
+              </button>
+            </div>
+            <div className="px-4 py-4 space-y-2 min-h-[calc(100vh-80px)]" style={{ height: 'calc(100vh - 80px)' }}>
               {menuItems.map((item) => (
                 <div key={item.name}>
                   {item.external ? (
@@ -275,6 +308,19 @@ const Header = () => {
               ))}
             </div>
           </motion.div>
+        )}
+      </AnimatePresence>
+      {/* Overlay */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.5 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="lg:hidden fixed inset-0 min-h-screen bg-black z-40"
+            onClick={() => setIsMenuOpen(false)}
+          />
         )}
       </AnimatePresence>
     </motion.header>

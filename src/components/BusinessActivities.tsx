@@ -147,7 +147,7 @@ const BusinessActivities = () => {
                   </div>
 
                   {/* Image/Icon Section */}
-                  <div className="relative mb-6">
+                  <div className="relative mb-6 z-10">
                     <motion.div
                       animate={hoveredCard === index ? {
                         scale: [1, 1.05, 1],
@@ -207,12 +207,12 @@ const BusinessActivities = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="text-center">
+                  <div className="text-center relative z-10">
                     <h3 className="text-lg font-bold text-gray-800 mb-3 group-hover:text-orange-600 transition-colors duration-300 leading-tight">
                       {activity.title}
                     </h3>
                     
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4 group-hover:text-gray-700">
                       {activity.description}
                     </p>
 
@@ -245,7 +245,7 @@ const BusinessActivities = () => {
                     className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${activity.color} opacity-20 pointer-events-none`}
                     style={{ padding: '2px' }}
                   >
-                    <div className="bg-white rounded-2xl w-full h-full" />
+                    <div className="bg-white rounded-2xl w-full h-full group-hover:bg-orange-50 transition-colors duration-300" />
                   </motion.div>
                 </div>
               </Link>

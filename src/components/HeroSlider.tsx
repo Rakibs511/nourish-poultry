@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronLeftIcon, ChevronRightIcon, ChevronDoubleDownIcon } from '@heroicons/react/24/outline'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 
 const HeroSlider = () => {
@@ -57,12 +57,6 @@ const HeroSlider = () => {
     return () => clearInterval(interval)
   }, [autoPlay, slides.length])
 
-  const scrollToContent = () => {
-    const nextSection = document.getElementById('services-section')
-    if (nextSection) {
-      nextSection.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length)
@@ -74,7 +68,7 @@ const HeroSlider = () => {
 
   return (
     <div
-      className="relative h-screen overflow-hidden"
+      className="relative h-[75vh] lg:h-[85vh] overflow-hidden"
       onMouseEnter={() => setAutoPlay(false)}
       onMouseLeave={() => setAutoPlay(true)}
     >
@@ -114,7 +108,7 @@ const HeroSlider = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -30 }}
                 transition={{ duration: 0.8 }}
-                className="text-6xl md:text-8xl font-bold text-white mb-4"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4"
               >
                 {slides[currentSlide].title}
               </motion.h1>
@@ -124,7 +118,7 @@ const HeroSlider = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -30 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-3xl md:text-4xl text-orange-400 font-semibold mb-8"
+                className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl text-orange-400 font-semibold mb-6"
               >
                 {slides[currentSlide].subtitle}
               </motion.p>
@@ -154,32 +148,7 @@ const HeroSlider = () => {
         </motion.div>
       </AnimatePresence>
 
-      {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide 
-                ? 'bg-white scale-125' 
-                : 'bg-white/50 hover:bg-white/75'
-            }`}
-          />
-        ))}
-      </div>
 
-      {/* Scroll Down Button */}
-      <motion.button
-        onClick={scrollToContent}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 0.8 }}
-        className="absolute bottom-[130px] left-1/2 transform -translate-x-1/2 flex flex-col items-center text-white cursor-pointer z-50 group bg-white/10 backdrop-blur-sm p-4 rounded-full hover:bg-white/20 transition-all duration-300 w-60 shadow-lg hover:shadow-xl"
-      >
-        <span className="text-sm font-medium mb-2 group-hover:text-orange-400 transition-colors">Scroll Down</span>
-        <ChevronDoubleDownIcon className="w-6 h-6 animate-bounce group-hover:text-orange-400 transition-colors" />
-      </motion.button>
 
       {/* Navigation Arrows */}
       <button
@@ -197,7 +166,7 @@ const HeroSlider = () => {
       </button>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3">
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3">
         {slides.map((_, index) => (
           <button
             key={index}
