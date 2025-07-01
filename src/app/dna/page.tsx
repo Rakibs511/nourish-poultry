@@ -1,15 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeftIcon } from '@heroicons/react/24/outline'
 
 export default function NourishDNA() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
@@ -55,7 +51,7 @@ export default function NourishDNA() {
                 We are not built to compromise on the issues of honesty and integrity. Valuing every individual is a key philosophy of our group. Our Code of Conduct reinforces our core values and is a guide to help each team member to make the right ethical decisions and resolve any issues that he may encounter.
               </p>
               <p className="text-xl text-gray-600 leading-relaxed">
-                We stress the importance of looking at quality from the customer's point of view. Examine the quality of our product & service scrupulously just as a cautious customer would. We believe that if we focus on customers; everything else will follow.
+                We stress the importance of looking at quality from the customer&apos;s point of view. Examine the quality of our product & service scrupulously just as a cautious customer would. We believe that if we focus on customers; everything else will follow.
               </p>
             </motion.div>
 
@@ -130,7 +126,7 @@ export default function NourishDNA() {
             >
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Social Integrity</h3>
               <p className="text-gray-600">
-                We believe that social bonding, mutual respect & economic emancipation are the three primary parameters for sustenance of a successful society. In other words, 'economic emancipation' is a necessity but not at the cost of social inequality, mutual disrespect & social degradation.
+                We believe that social bonding, mutual respect & economic emancipation are the three primary parameters for sustenance of a successful society. In other words, &apos;economic emancipation&apos; is a necessity but not at the cost of social inequality, mutual disrespect & social degradation.
               </p>
             </motion.div>
           </div>

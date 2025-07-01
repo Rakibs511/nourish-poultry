@@ -70,7 +70,7 @@ export default function PeoplePlacePlanet() {
                             </h1>
 
               <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                The past half-century has witness remarkable growth in food production, allowing for a dramatic decrease in the proportion of the world's people that are hungry, despite a doubling of the total population. Nevertheless, more than one in seven people today still do not have access to sufficient protein and energy from their diet, and even more suffer from some form of micronutrient malnourishment.
+                The past half-century has witness remarkable growth in food production, allowing for a dramatic decrease in the proportion of the world&apos;s people that are hungry, despite a doubling of the total population. Nevertheless, more than one in seven people today still do not have access to sufficient protein and energy from their diet, and even more suffer from some form of micronutrient malnourishment.
               </p>
               <p className="text-xl text-gray-600 leading-relaxed mb-8">
                 The world is now facing a new set of intersecting challenges. The global population will continue to grow, yet it is likely to plateau at some 9 billion people by roughly the middle of this century. A major correlate of this deceleration in population growth is increased wealth, and with higher purchasing power comes higher consumption and a greater demand for processed food, meat, dairy, and fish, all of which add pressure to the food supply system.
@@ -134,7 +134,7 @@ export default function PeoplePlacePlanet() {
                                     <span className="text-orange-600">People</span> First
                                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                                    Bangladesh, though a developing country, is one of the world's most densely populated countries with 165 million people, more than 70% of which are the part of rural Bangladesh while 31.5% of whom live below the national poverty line. Poverty in Bangladesh is primarily a 'rural phenomenon', with 53% of its rural population classified as poor, comprising about 85% of the country's poor.
+                                    Bangladesh, though a developing country, is one of the world&apos;s most densely populated countries with 165 million people, more than 70% of which are the part of rural Bangladesh while 31.5% of whom live below the national poverty line. Poverty in Bangladesh is primarily a &apos;rural phenomenon&apos;, with 53% of its rural population classified as poor, comprising about 85% of the country&apos;s poor.
                                 </p>
                                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
                                     Despite important economic progress (GDP Growth rate 6.5% in 2011), the country remains highly food-insecured. For people in most developing countries, the daily calorie average is 2,828 where as in Bangladesh, that average is only 2,318. Out of the total energy intake, 76% comes from cereals (Std. 55%), 17% from non-cereal plant sources (Std. 30%), and 6% (Std. 15%) from animal sources.
@@ -197,7 +197,7 @@ export default function PeoplePlacePlanet() {
                                     The lack of easily accessible markets and poor infrastructure pose significant constraints in both agricultural input and output markets. Marketing margins are high relative to services provided, and the situation is further aggravated by lack of market information, poor law and order, and existence of syndicates.
                             </p>
                                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                                    Poverty, hunger and malnutrition hinder children's access to education and ability to learn. Although Bangladesh has made encouraging progress in terms of net enrolment rates and achieved gender parity in primary education, major problems remain in terms of completion and drop-out rates, particularly for girls from extreme poor families. An estimated 3.3 million children remain out of school, and only 55% of those in school will complete primary education (UNICEF 2009).
+                                    Poverty, hunger and malnutrition hinder children&apos;s access to education and ability to learn. Although Bangladesh has made encouraging progress in terms of net enrolment rates and achieved gender parity in primary education, major problems remain in terms of completion and drop-out rates, particularly for girls from extreme poor families. An estimated 3.3 million children remain out of school, and only 55% of those in school will complete primary education (UNICEF 2009).
                                 </p>
                                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
                                     The economy of Bangladesh needs a comprehensive approach to reduce serious problem of high rate of unemployment & poverty, income inequality and malnutrition and it has already been identified that protein deficiency from animal origin is taken as the major contributory factor in malnutrition or undernourishment.

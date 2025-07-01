@@ -140,7 +140,7 @@ export default function Journey() {
                 The power of mitigating the socio economic stress coupled with high growth potentiality of poultry & fishery sector encouraged Nourish Management to open a diversified business challenge in this new avenue.
               </p>
               <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                In 1999, the founders of Khaled Group of Companies have introduced Nourish Poultry and Hatchery Ltd. with a dream for a society free from undernourished & underprivileged people. The major products of Nourish Poultry and Hatchery Ltd were Day Old Chicks (DOC) and poultry feeds. The initial motto of Nourish was "We Breed, We Feed, We Nourish", which was focusing on the nourishment of individuals, households & the society.
+                In 1999, the founders of Khaled Group of Companies have introduced Nourish Poultry and Hatchery Ltd. with a dream for a society free from undernourished & underprivileged people. The major products of Nourish Poultry and Hatchery Ltd were Day Old Chicks (DOC) and poultry feeds. The initial motto of Nourish was &quot;We Breed, We Feed, We Nourish&quot;, which was focusing on the nourishment of individuals, households & the society.
               </p>
               
               <div className="flex items-center space-x-6">

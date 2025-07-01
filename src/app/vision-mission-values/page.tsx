@@ -1,15 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeftIcon } from '@heroicons/react/24/outline'
 
 export default function VisionMissionValues() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   const successParameters = [
     {
@@ -222,7 +218,7 @@ export default function VisionMissionValues() {
               Share Our Vision
             </h2>
             <p className="text-xl text-orange-100 mb-8">
-              Join us in our mission to create sustainable solutions for Bangladesh's agricultural future
+              Join us in our mission to create sustainable solutions for Bangladesh&apos;s agricultural future
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

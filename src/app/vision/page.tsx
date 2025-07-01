@@ -1,13 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeftIcon } from '@heroicons/react/24/outline'
 
 export default function Vision() {
-  const ref = useRef(null)
 
   const successParameters = [
     {
