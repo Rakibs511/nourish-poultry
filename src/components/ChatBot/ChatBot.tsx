@@ -9,6 +9,10 @@ interface Message {
     isBot: boolean
     timestamp: Date
     suggestions?: string[]
+    pageLink?: {
+        url: string
+        text: string
+    }
 }
 
 export default function ChatBot() {
@@ -38,11 +42,12 @@ export default function ChatBot() {
         scrollToBottom()
     }, [messages])
 
-    const handleSendMessage = async () => {
-        if (!inputMessage.trim()) return
+    const handleSendMessage = async (message?: string) => {
+        const messageToSend = message || inputMessage
+        if (!messageToSend.trim()) return
 
         const newMessage: Message = {
-            content: inputMessage,
+            content: messageToSend,
             isBot: false,
             timestamp: new Date()
         }
@@ -58,7 +63,7 @@ export default function ChatBot() {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    message: inputMessage.trim(),
+                    message: messageToSend.trim(),
                     sessionId
                 }),
             })
@@ -73,7 +78,8 @@ export default function ChatBot() {
                 content: data.response,
                 isBot: true,
                 timestamp: new Date(),
-                suggestions: data.suggestedQuestions
+                suggestions: data.suggestions,
+                pageLink: data.pageLink
             }])
         } catch (error) {
             console.error('Chat error:', error)
@@ -138,16 +144,26 @@ export default function ChatBot() {
                                         <p className="text-xs mt-1 opacity-70">
                                             {message.timestamp.toLocaleTimeString()}
                                         </p>
+                                        {message.isBot && message.pageLink && (
+                                            <div className="mt-3">
+                                                <a
+                                                    href={message.pageLink.url}
+                                                    className="inline-block bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 transition-colors text-sm font-medium"
+                                                >
+                                                    {message.pageLink.text}
+                                                </a>
+                                            </div>
+                                        )}
                                         {message.isBot && message.suggestions && (
                                             <div className="mt-3 flex flex-wrap gap-2">
                                                 {message.suggestions.map((suggestion, idx) => (
                                                     <button
                                                         key={idx}
                                                         onClick={() => {
-                                                            setInputMessage(suggestion)
-                                                            handleSendMessage()
+                                                            handleSendMessage(suggestion)
+                                                            setInputMessage('')
                                                         }}
-                                        className="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded-full hover:bg-amber-200 transition-colors whitespace-nowrap"
+                                                        className="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded-full hover:bg-amber-200 transition-colors whitespace-nowrap"
                                                     >
                                                         {suggestion}
                                                     </button>
@@ -182,12 +198,13 @@ export default function ChatBot() {
                                     type="text"
                                     value={inputMessage}
                                     onChange={(e) => setInputMessage(e.target.value)}
-                                    onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+                                    onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
+                                    aria-label="Chat message input"
                                     placeholder="Type your message..."
                                 className="flex-1 px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-transparent text-base sm:text-sm"
                                 />
                                 <motion.button
-                                    onClick={handleSendMessage}
+                                    onClick={() => handleSendMessage()}
                                     disabled={isLoading || !inputMessage.trim()}
                                     className="bg-amber-600 text-white rounded-full p-2 disabled:opacity-50 disabled:cursor-not-allowed"
                                     whileHover={{ scale: 1.1 }}
