@@ -1,72 +1,34 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import Image from 'next/image'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowLeftIcon, CheckCircleIcon, TrophyIcon, StarIcon, GifIcon } from '@heroicons/react/24/outline'
+import Image from 'next/image'
+import { ArrowLeftIcon, CheckCircleIcon, StarIcon } from '@heroicons/react/24/outline'
+
+const testimonials = [
+  {
+    name: "Dr. Farhana Rahman",
+    position: "President, Bangladesh Poultry Association",
+    image: "/images/testimonials/farhana.jpg",
+    quote: "Nourish has set a benchmark in the poultry industry with their commitment to quality and innovation."
+  },
+  {
+    name: "Mr. Anisur Rahman",
+    position: "Editor, Agriculture Today",
+    image: "/images/testimonials/anisur.jpg",
+    quote: "Their sustainable practices and community focus are truly exemplary in the sector."
+  },
+  {
+    name: "Prof. Md. Shafiqul Islam",
+    position: "Dept. of Fisheries, University of Dhaka",
+    image: "/images/testimonials/shafiqul.jpg",
+    quote: "Nourish's approach to aquaculture and food safety is a model for others to follow."
+  }
+]
 
 export default function Awards() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
-
-  const awards = [
-    {
-      title: "Best Poultry Producer 2023",
-      organization: "Bangladesh Poultry Association",
-      year: "2023",
-      category: "Industry Excellence",
-      description: "Recognized for outstanding contribution to the poultry industry and innovative farming practices",
-      significance: "National recognition for industry leadership",
-      icon: "🥇"
-    },
-    {
-      title: "Excellence in Aquaculture Award",
-      organization: "Ministry of Fisheries and Livestock",
-      year: "2022",
-      category: "Aquaculture Innovation",
-      description: "Awarded for pioneering sustainable tilapia farming techniques and community development",
-      significance: "Government recognition for innovation",
-      icon: "🐟"
-    },
-    {
-      title: "Quality Assurance Champion",
-      organization: "Food Safety Authority",
-      year: "2022",
-      category: "Food Safety",
-      description: "Honored for maintaining highest food safety standards and HACCP implementation",
-      significance: "Food safety excellence recognition",
-      icon: "🛡️"
-    },
-    {
-      title: "Sustainable Business Award",
-      organization: "Bangladesh Chamber of Commerce",
-      year: "2021",
-      category: "Sustainability",
-      description: "Recognized for implementing eco-friendly practices and reducing environmental impact",
-      significance: "Environmental stewardship award",
-      icon: "🌱"
-    },
-    {
-      title: "Rural Development Excellence",
-      organization: "Department of Agriculture Extension",
-      year: "2021",
-      category: "Community Impact",
-      description: "Awarded for significant contribution to rural livelihood improvement and farmer empowerment",
-      significance: "Social impact recognition",
-      icon: "👥"
-    },
-    {
-      title: "Innovation in Agriculture",
-      organization: "Bangladesh Agricultural Research Institute",
-      year: "2020",
-      category: "Technology Innovation",
-      description: "Recognized for adopting modern technology and smart farming solutions",
-      significance: "Technology leadership award",
-      icon: "💡"
-    }
-  ]
 
   const recognitions = [
     {
@@ -125,34 +87,12 @@ export default function Awards() {
     }
   ]
 
-  const testimonials = [
-    {
-      name: "Dr. Rahman Ahmed",
-      position: "Director, Bangladesh Poultry Association",
-      quote: "Nourish Bangladesh has consistently demonstrated excellence in poultry production and has been a pioneer in adopting sustainable farming practices.",
-      image: "/images/thumb/5.jpg"
-    },
-    {
-      name: "Prof. Fatima Khan",
-      position: "Agricultural Science, Dhaka University",
-      quote: "Their contribution to the aquaculture sector has been remarkable, especially in developing efficient tilapia farming systems.",
-      image: "/images/thumb/8.jpg"
-    },
-    {
-      name: "Mohammad Hassan",
-      position: "Food Safety Inspector",
-      quote: "The company maintains exemplary food safety standards and has been a role model for other producers in the industry.",
-      image: "/images/thumb/2.jpg"
-    }
-  ]
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-100 via-amber-50 to-transparent opacity-60" />
+      <section className="relative pt-32 pb-20" ref={ref}>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -169,141 +109,83 @@ export default function Awards() {
             </Link>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -60 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <motion.div
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="w-20 h-1 bg-amber-600 mb-6"
-              />
-              
-              <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
-                Awards &
-                <span className="text-amber-600 block">Recognition</span>
-              </h1>
-              
-              <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                Our commitment to excellence has been recognized by industry leaders, 
-                government bodies, and professional organizations. These awards reflect 
-                our dedication to quality, innovation, and sustainable practices.
-              </p>
-              
-              <div className="flex items-center space-x-6">
-                <div className="flex items-center text-amber-600">
-                  <TrophyIcon className="w-5 h-5 mr-2" />
-                  <span className="font-semibold">6+ Awards</span>
-                </div>
-                <div className="flex items-center text-amber-600">
-                  <StarIcon className="w-5 h-5 mr-2" />
-                  <span className="font-semibold">Industry Leader</span>
-                </div>
-                <div className="flex items-center text-amber-600">
-                  <GifIcon className="w-5 h-5 mr-2" />
-                  <span className="font-semibold">Excellence</span>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 60 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
-            >
-              <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/thumb/5.jpg"
-                  alt="Awards and Recognition"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-amber-900/30 to-transparent" />
-              </div>
-              
-              {/* Trophy animation */}
-              <motion.div
-                animate={{ 
-                  rotate: [0, 10, -10, 0],
-                  scale: [1, 1.1, 1]
-                }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-4 -right-4 w-20 h-20 bg-amber-500 rounded-full opacity-90 flex items-center justify-center text-2xl"
-              >
-                🏆
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Awards Grid */}
-      <section ref={ref} className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              Our <span className="text-amber-600">Awards & Honors</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Recognition from prestigious organizations for our contributions to the industry
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {awards.map((award, index) => (
+            <h1 className="text-4xl font-bold text-gray-800 mb-12 text-center">
+              Winner of Asia&apos;s Emerging Poultry Integrator Award 2011
+            </h1>
+            
+            <div className="space-y-8">
               <motion.div
-                key={award.title}
-                initial={{ opacity: 0, y: 50 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -8, scale: 1.03 }}
-                className="bg-white rounded-3xl shadow-lg p-8 border border-gray-100 group hover:shadow-xl transition-all duration-300"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="bg-white rounded-xl shadow-lg p-8"
               >
-                <div className="text-center mb-6">
-                  <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                    {award.icon}
+                <div className="flex flex-col md:flex-row items-start gap-8">
+                  <div className="relative w-48 md:w-56 h-72 md:h-80 rounded-lg overflow-hidden mx-auto md:mx-0">
+                    <Image
+                      src="/images/award1.jpg"
+                      alt="Mr. Nazmul Ahsan Khaled - Managing Director, Nourish Bangladesh"
+                      fill
+                      className="object-cover object-top"
+                      priority
+                    />
                   </div>
-                  <div className="bg-amber-100 text-amber-600 px-3 py-1 rounded-full text-sm font-medium mb-4">
-                    {award.year}
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-800 group-hover:text-amber-600 transition-colors duration-300 mb-2">
-                    {award.title}
-                  </h3>
-                  <p className="text-amber-600 font-medium mb-4">{award.organization}</p>
-                </div>
-                
-                <div className="space-y-4">
-                  <div>
-                    <span className="text-sm font-semibold text-gray-800">Category:</span>
-                    <p className="text-sm text-gray-600">{award.category}</p>
-                  </div>
-                  
-                  <div>
-                    <span className="text-sm font-semibold text-gray-800">Description:</span>
-                    <p className="text-sm text-gray-600">{award.description}</p>
-                  </div>
-                  
-                  <div className="bg-amber-50 rounded-lg p-4">
-                    <div className="flex items-center">
-                      <CheckCircleIcon className="w-4 h-4 text-amber-500 mr-2 flex-shrink-0" />
-                      <span className="text-sm font-medium text-gray-800">{award.significance}</span>
-                    </div>
+                  <div className="flex-1 text-center md:text-left">
+                    <p className="text-gray-700 leading-relaxed mb-4">
+                      Nourish was awarded as the &quot;Emerging Poultry Integrator of Asia&quot; in LIVESTOCK ASIA Expo and Forum 2011, 
+                      at Kuala Lumpur, Malaysia. The honorable Managing Director of Nourish Bangladesh Mr. Nazmul Ahsan Khaled 
+                      received the award on behalf of Nourish.
+                    </p>
+                    <p className="text-lg font-semibold text-gray-900">Mr. Nazmul Ahsan Khaled</p>
+                    <p className="text-amber-600">Managing Director, Nourish Bangladesh</p>
                   </div>
                 </div>
               </motion.div>
-            ))}
-          </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="bg-white rounded-xl shadow-lg p-8"
+              >
+                <h2 className="text-2xl font-bold text-gray-800 mb-4">LIVESTOCK ASIA Expo 2011 Summary</h2>
+                <p className="text-gray-700 leading-relaxed">
+                  LIVESTOCK ASIA Expo and Forum 2011 was held at Kuala Lumpur Convention Centre, Kuala Lumpur, Malaysia 
+                  hosted by Department of Veterinary Services, Ministry of Agriculture and Agro-based Industry Malaysia 
+                  and organized by United Business Media (UBM), Malaysia. The purpose of the show was to create a platform 
+                  for the industry players to showcase their products internationally and at the same time providing them 
+                  with the opportunity to expand their business networks. Also the forum announces and awarded the local 
+                  (Malaysian) and internationally renowned company of South Asia for their outstanding contribution in 
+                  poultry industry in the last decade and Nourish Poultry and Hatchery Ltd (NPHL) is one of them.
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="bg-white rounded-xl shadow-lg p-8"
+              >
+                <p className="text-gray-700 leading-relaxed">
+                  Nourish mainly focuses on the role of poultry production in food security of Bangladesh. During the 
+                  interactive panel discussion, the honorable Director of Nourish Bangladesh explains the situation of 
+                  poultry industry of Bangladesh along with its current challenges and enormous future possibilities. 
+                  Nourish also highlights the role of poultry industry which can appear as the major poverty alleviation 
+                  tool for Bangladesh. The seminar was very much interactive and provides a unique platform for knowledge 
+                  sharing among the leading poultry players of this region. During this seminar Nourish Poultry and 
+                  Hatchery Ltd was awarded as emerging poultry integrator of Asia.
+                </p>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
       </section>
+      
 
       {/* Achievements Metrics */}
       <section className="py-20 bg-gradient-to-r from-gray-50 to-amber-50">
