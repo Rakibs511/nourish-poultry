@@ -1,9 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState, useMemo } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { 
   ArrowLeftIcon, 
   PhoneIcon, 
