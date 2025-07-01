@@ -1,15 +1,16 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { 
   ArrowLeftIcon, 
-  MapPinIcon, 
   PhoneIcon, 
   EnvelopeIcon,
   ClockIcon
 } from '@heroicons/react/24/outline'
+// Map location redirect functionality
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -100,9 +101,6 @@ export default function Contact() {
                   whileHover={{ scale: 1.02 }}
                   className="flex items-start space-x-4 p-6 bg-white rounded-2xl shadow-lg border border-gray-100"
                 >
-                  <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPinIcon className="w-6 h-6 text-orange-600" />
-                  </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-800 mb-2">Address</h3>
                     <p className="text-gray-600">
@@ -304,15 +302,25 @@ export default function Contact() {
             viewport={{ once: true }}
             className="bg-white rounded-3xl shadow-2xl overflow-hidden"
           >
-            <div className="h-96 bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center">
-              <div className="text-center">
-                <MapPinIcon className="w-16 h-16 text-orange-600 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">Interactive Map</h3>
-                <p className="text-gray-600">
-                  House # 39, Sonargaon Janapath Road, Sector # 07, Uttara, Dhaka-1230
-                </p>
+            <motion.div 
+              className="relative h-96 rounded-3xl overflow-hidden cursor-pointer group"
+              whileHover={{ scale: 1.01 }}
+              onClick={() => window.open('https://www.google.com/maps/search/?api=1&query=House+%2339,+Nourish+Poultry+Hatchery+Limited,+Sonargaon+Janapath+Road+Sector+%2307,+Uttara,+Dhaka+1230', '_blank')}
+            >
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3648.358444716831!2d90.39361927605438!3d23.874269884528926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c43db8f853d5%3A0x3848eb2f66a7b10c!2sNourish%20Poultry%20Hatchery%20Limited!5e0!3m2!1sen!2s!4v1629308000000!5m2!1sen!2s&disableDefaultUI=1"
+                className="w-full h-full border-0"
+                allowFullScreen={false}
+                loading="lazy"
+                style={{ pointerEvents: 'none' }}
+              />
+              <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="bg-white/90 px-6 py-3 rounded-full shadow-lg">
+                  <span className="font-semibold text-gray-800">Click for Directions</span>
+                </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>

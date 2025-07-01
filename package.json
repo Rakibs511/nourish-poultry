@@ -11,6 +11,7 @@
   "dependencies": {
     "@headlessui/react": "^2.2.4",
     "@heroicons/react": "^2.2.0",
+    "@react-google-maps/api": "^2.20.7",
     "framer-motion": "^12.19.2",
     "motion-dom": "^12.20.1",
     "next": "15.3.4",
