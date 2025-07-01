@@ -166,7 +166,7 @@ export default function Download() {
                     href={item.filePath}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center flex-1 border-2 border-orange-600 text-orange-600 px-4 py-2 rounded-lg hover:bg-orange-50 transition-colors"
+                    className="flex items-center justify-center flex-1 border-2 border-orange-600 text-orange-600 px-4 py-2 rounded-lg hover:bg-orange-50 transition-colors cursor-pointer"
                   >
                     <DocumentTextIcon className="w-5 h-5 mr-2" />
                     View
