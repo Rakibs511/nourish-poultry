@@ -274,7 +274,7 @@ const Footer = () => {
               transition={{ duration: 0.6 }}
               className="text-gray-400"
             >
-              Copyright © 2024{' '}
+              Copyright © 2025{' '}
               <span className="text-orange-400 font-semibold">Nourish Bangladesh</span>{' '}
               All rights reserved.
             </motion.p>

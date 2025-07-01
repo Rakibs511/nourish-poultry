@@ -154,7 +154,7 @@ export default function Tilapia() {
                 <span className="text-orange-600 block">Aquaculture</span>
               </h1>
               
-              <p className="text-xl text-gray-600 leading-relaxed mb-8">
+              <p className="text-xl text-gray-600 leading-relaxed mb-8 pe-2 md:p-0">
                 Sustainable tilapia farming with premium quality fingerlings and 
                 comprehensive aquaculture support. Our tilapia varieties offer 
                 excellent growth rates, disease resistance, and market appeal.
@@ -182,12 +182,14 @@ export default function Tilapia() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-96 rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/thumb/9.jpg"
+                  src="/images/thumb/5.jpg"
                   alt="Tilapia Aquaculture"
                   fill
-                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority
+                  className="object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-orange-900/30 to-transparent" />
                 <div className="absolute inset-0 mix-blend-overlay bg-gradient-to-br from-orange-200/30 via-transparent to-orange-100/20" />
