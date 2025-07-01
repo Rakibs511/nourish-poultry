@@ -142,7 +142,7 @@ export default function QualityAssurance() {
                   Our Nutrition lab plays a crucial role as a reactive core-component of the system.
                 </p>
                 <p className="text-gray-600">
-                  With our noble vision of quality excellence, Nourish has built the country's best Wet Chemistry Nutrition Lab featuring:
+                  With our noble vision of quality excellence, Nourish has built the country&apos;s best Wet Chemistry Nutrition Lab featuring:
                 </p>
                 <ul className="text-gray-600 list-disc pl-6 space-y-2">
                   <li>Feed Analytical Machineries from GERHARDT (Germany)</li>
