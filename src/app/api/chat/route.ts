@@ -1,7 +1,12 @@
 import { NextResponse } from 'next/server'
 
 // Define response patterns
-const responses = {
+type ResponseData = {
+    patterns?: string[],
+    reply: string,
+    suggestions: string[]
+}
+const responses: Record<string, ResponseData> = {
     greeting: {
         patterns: ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening'],
         reply: 'Hello! Welcome to Nourish Poultry. How can I assist you today?',
@@ -98,7 +103,7 @@ function findBestMatch(message: string) {
     const lowerMessage = message.toLowerCase()
     
     // Check each response pattern
-    for (const [key, data] of Object.entries(responses)) {
+    for (const [key, data] of Object.entries(responses) as [string, ResponseData][]) {
         if (key === 'default') continue
         
         // Check if message includes any of the patterns
