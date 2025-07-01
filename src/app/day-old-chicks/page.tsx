@@ -49,7 +49,7 @@ export default function DayOldChicks() {
               
               <div className="space-y-6">
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  From the beginning, Nourish worked on those breeds which suits most effectively to our environment. Our primary breed is Cobb-500 which is renowned as the world's best broiler breed.
+                  From the beginning, Nourish worked on those breeds which suits most effectively to our environment. Our primary breed is Cobb-500 which is renowned as the world&apos;s best broiler breed.
                 </p>
                 <p className="text-xl text-gray-600 leading-relaxed">
                   Most importantly, we always try to offer our farmers the best possible product like DOC that copes most suitably to our environment and farmers competency.
@@ -95,7 +95,7 @@ export default function DayOldChicks() {
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <span className="text-orange-600 text-xl">•</span>
-                  <p className="text-gray-600">Cobb-500 - World's best broiler breed</p>
+                  <p className="text-gray-600">Cobb-500 - World&apos;s best broiler breed</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <span className="text-orange-600 text-xl">•</span>
