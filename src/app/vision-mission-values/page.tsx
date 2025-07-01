@@ -7,9 +7,42 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeftIcon } from '@heroicons/react/24/outline'
 
-export default function NourishDNA() {
+export default function VisionMissionValues() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
+
+  const successParameters = [
+    {
+      title: "Accessibility",
+      description: "Highly accessible products with minimum cost",
+      icon: "🎯"
+    },
+    {
+      title: "Affordability",
+      description: "Perfectly matched prices with product performance",
+      icon: "💰"
+    },
+    {
+      title: "Sustainability",
+      description: "Products with sustainable profit performance",
+      icon: "🌱"
+    },
+    {
+      title: "Competency",
+      description: "Service with highest personal & professional competence",
+      icon: "⭐"
+    },
+    {
+      title: "Consistency",
+      description: "Consistent Quality of products & services",
+      icon: "📈"
+    },
+    {
+      title: "Transparency",
+      description: "Business dealings with utmost transparency",
+      icon: "🤝"
+    }
+  ]
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
@@ -48,14 +81,15 @@ export default function NourishDNA() {
               />
               
               <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
-                Nourish <span className="text-orange-600">DNA</span>
+                Vision, Mission &
+                <span className="text-orange-600 block">Values</span>
               </h1>
               
               <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                We are not built to compromise on the issues of honesty and integrity. Valuing every individual is a key philosophy of our group. Our Code of Conduct reinforces our core values and is a guide to help each team member to make the right ethical decisions and resolve any issues that he may encounter.
+                From the very beginning, the mission of Nourish is to create the strongest brand value & brand equity in agro-industrial sector by ensuring consistent quality, accessibility, competency and affordability of our products or services to make our customers more capable, committed & sustainable with the vision of nourishment of People, Place and Planet.
               </p>
               <p className="text-xl text-gray-600 leading-relaxed">
-                We stress the importance of looking at quality from the customer's point of view. Examine the quality of our product & service scrupulously just as a cautious customer would. We believe that if we focus on customers; everything else will follow.
+                Nourish endears to add a defined value of quality, innovation, transparency, honesty, social bonding and mutual respect. Each of these values is complemented by binding principles, which explain how they are implemented in our day-to-day business.
               </p>
             </motion.div>
 
@@ -67,8 +101,8 @@ export default function NourishDNA() {
             >
               <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/dna.jpg"
-                  alt="Nourish DNA"
+                  src="/images/vision.jpg"
+                  alt="Vision and Mission"
                   fill
                   className="object-cover"
                 />
@@ -79,7 +113,7 @@ export default function NourishDNA() {
         </div>
       </section>
 
-      {/* Core Values Section */}
+      {/* Three Pillars Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -90,7 +124,7 @@ export default function NourishDNA() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
-              Our Core <span className="text-orange-600">Principles</span>
+              Our Three <span className="text-orange-600">Pillars</span>
             </h2>
           </motion.div>
 
@@ -102,9 +136,9 @@ export default function NourishDNA() {
               viewport={{ once: true }}
               className="bg-gradient-to-br from-orange-50 to-white rounded-2xl shadow-lg p-8"
             >
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Innovation & Research</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">People</h3>
               <p className="text-gray-600">
-                We believe that innovation, research and development are very important to maintain customer satisfaction. We are continuously working on developing new solutions and implementing new ideas & technologies that would serve our customers better. Because of this belief, every year we invest heavily on research and development.
+                For an active human life access to a balanced food basket is the prerequisite. Nourish is committed to excel the quality of human capital (i.e. people) by providing more balanced & accessible food basket. Achieving the Millennium Development Goal (MDG) of halving poverty to 26.5 percent by 2015 will require a higher growth & income equality in rural areas.
               </p>
             </motion.div>
 
@@ -115,9 +149,9 @@ export default function NourishDNA() {
               viewport={{ once: true }}
               className="bg-gradient-to-br from-orange-50 to-white rounded-2xl shadow-lg p-8"
             >
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Quality Assurance</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Place</h3>
               <p className="text-gray-600">
-                We have several labs which continuously monitor the quality of our products. Our rigorous screening for the quality of the raw materials is a key for achieving high quality finished products. We have collect vast amount of data and continuously changing our formulas to achieve the best possible results.
+                Nourish believes that through development of poultry & fishery industry, the rural revitalization goal can be achieved. It also helps rural women by opening up avenues to participate in the economic activities without creating any conflict between socio-religious & financial responsibilities.
               </p>
             </motion.div>
 
@@ -128,11 +162,49 @@ export default function NourishDNA() {
               viewport={{ once: true }}
               className="bg-gradient-to-br from-orange-50 to-white rounded-2xl shadow-lg p-8"
             >
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Social Integrity</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Planet</h3>
               <p className="text-gray-600">
-                We believe that social bonding, mutual respect & economic emancipation are the three primary parameters for sustenance of a successful society. In other words, 'economic emancipation' is a necessity but not at the cost of social inequality, mutual disrespect & social degradation.
+                Nourish believes the nourishment of people & places is important but not at the cost of our planet. The least environmental hazard is a prerequisite for the sustenance of our planet. To materialize this vision, Nourish has introduced environment friendly technologies and has preferred micro-ingredients that come from organic source which are self-degradable and less hazardous to our environment or in broader sense to our planet.
               </p>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Success Parameters Section */}
+      <section className="py-20 bg-gradient-to-r from-gray-50 to-orange-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+              Key Success <span className="text-orange-600">Parameters</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {successParameters.map((param, index) => (
+              <motion.div
+                key={param.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow"
+              >
+                <div className="flex items-center space-x-4">
+                  <span className="text-3xl">{param.icon}</span>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800">{param.title}</h3>
+                    <p className="text-gray-600">{param.description}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -147,10 +219,10 @@ export default function NourishDNA() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold text-white mb-6">
-              Join Our Journey
+              Share Our Vision
             </h2>
             <p className="text-xl text-orange-100 mb-8">
-              Together, we can create a future built on honesty, integrity, and innovation.
+              Join us in our mission to create sustainable solutions for Bangladesh's agricultural future
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -160,10 +232,10 @@ export default function NourishDNA() {
                 Get In Touch
               </Link>
               <Link
-                href="/vision"
+                href="/journey"
                 className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-orange-600 transition-colors duration-300"
               >
-                Our Vision
+                Our Journey
               </Link>
             </div>
           </motion.div>
