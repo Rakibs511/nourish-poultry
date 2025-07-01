@@ -111,7 +111,7 @@ export default function BusinessGrowth() {
       description: "Implemented eco-friendly farming and processing methods",
       impact: "30% reduction in environmental footprint",
       year: "2021-2023",
-      image: "/images/thumb/8.jpg"
+      image: "/images/thumb/7.jpg"
     }
   ]
 
