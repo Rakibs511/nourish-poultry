@@ -147,13 +147,14 @@ export default function BusinessGrowth() {
             </Link>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -60 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
               <motion.div
+                initial={{ opacity: 0, x: -60 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="order-2 lg:order-1"
+              >
+                <motion.div
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
@@ -171,7 +172,7 @@ export default function BusinessGrowth() {
                 leader through innovation, quality, and dedication.
               </p>
               
-              <div className="flex items-center space-x-6">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
                 <div className="flex items-center text-orange-600">
                   <ArrowUpIcon className="w-5 h-5 mr-2" />
                   <span className="font-semibold">300% Growth</span>
@@ -188,12 +189,12 @@ export default function BusinessGrowth() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: -60 }}
+              initial={{ opacity: 0, x: 60 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
+              className="relative order-1 lg:order-2"
             >
-              <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-96 rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/images/thumb/1.jpg"
                   alt="Business Growth"
@@ -238,18 +239,24 @@ export default function BusinessGrowth() {
 
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-orange-200" />
+            <div className="md:hidden absolute left-[6px] top-0 bottom-0 w-1 bg-orange-200" />
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-orange-200" />
             
-            <div className="space-y-12">
+            <div className="space-y-8 md:space-y-12">
               {growthMilestones.map((milestone, index) => (
                 <motion.div
                   key={milestone.year}
                   initial={{ opacity: 0, y: 50 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
-                  className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+                  className={`flex items-start md:items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
                 >
-                  <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
+                  <div 
+                    className={`pl-10 flex-1 md:w-5/12 ${
+                      index % 2 === 0 
+                        ? 'md:text-right md:pr-8' 
+                        : 'md:text-left md:pl-8'
+                    }`}>
                     <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 group hover:shadow-xl transition-all duration-300">
                       <div className="flex items-center justify-between mb-4">
                         <h3 className="text-2xl font-bold text-orange-600">{milestone.year}</h3>
@@ -262,17 +269,27 @@ export default function BusinessGrowth() {
                           <CheckCircleIcon className="w-4 h-4 text-green-500 mr-2" />
                           <span className="text-sm font-medium text-gray-800">{milestone.achievement}</span>
                         </div>
-                        <div className="text-sm text-orange-600 font-medium">{milestone.impact}</div>
+                <div className="text-sm text-orange-600 font-medium mt-2">{milestone.impact}</div>
                       </div>
                     </div>
                   </div>
                   
                   {/* Timeline dot */}
-                  <div className="w-2/12 flex justify-center">
-                    <div className="w-6 h-6 bg-orange-500 rounded-full border-4 border-white shadow-lg z-10" />
+                  {/* Timeline dot - mobile version */}
+                  <div className="absolute left-[4px] md:hidden">
+                    <div className="w-4 h-4 bg-orange-600 rounded-full border-4 border-white shadow-lg z-10" />
                   </div>
-                  
-                  <div className="w-5/12" />
+
+                  {/* Timeline dot - desktop version */}
+                  <div className="hidden md:flex w-2/12 justify-center">
+                    <motion.div
+                      whileHover={{ scale: 1.2 }}
+                      className="w-4 h-4 bg-orange-600 rounded-full border-4 border-white shadow-lg z-10"
+                    />
+                  </div>
+
+                  {/* Empty space for desktop */}
+                  <div className="hidden md:block md:w-5/12" />
                 </motion.div>
               ))}
             </div>
@@ -298,7 +315,7 @@ export default function BusinessGrowth() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {businessMetrics.map((metric, index) => (
               <motion.div
                 key={metric.metric}
@@ -345,7 +362,7 @@ export default function BusinessGrowth() {
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {successStories.map((story, index) => (
               <motion.div
                 key={story.title}
@@ -423,11 +440,10 @@ export default function BusinessGrowth() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: -60 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: 60 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="relative"
+              className="order-1 lg:order-2 relative"
             >
               <div className="bg-gradient-to-br from-orange-400 to-orange-600 rounded-3xl p-8 text-white relative overflow-hidden">
                 <div className="relative z-10">

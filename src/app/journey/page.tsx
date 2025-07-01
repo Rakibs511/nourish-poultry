@@ -115,11 +115,13 @@ export default function Journey() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-96 rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/images/icon-services/journey.png"
                   alt="The Journey Begins"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-orange-900/20 to-transparent" />
@@ -160,26 +162,43 @@ export default function Journey() {
 
           {/* Timeline */}
           <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-orange-400 to-orange-600"></div>
+            {/* Timeline */}
+            <div className="md:hidden absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-orange-600" />
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-orange-400 to-orange-600" />
             
-            <div className="space-y-12">
+            <div className="space-y-8 md:space-y-12">
               {milestones.map((milestone, index) => (
                 <motion.div
                   key={milestone.year}
                   initial={{ opacity: 0, y: 50 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
-                  className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+                  className={`flex items-start md:items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} ${
+                    index % 2 === 0 ? 'flex-row' : 'flex-row'
+                  }`}
                 >
+                  {/* Mobile dot */}
+                  <div className="md:hidden w-16 flex items-center justify-center">
+                    <motion.div
+                      whileHover={{ scale: 1.2 }}
+                      className="w-4 h-4 bg-orange-600 rounded-full border-4 border-white shadow-lg z-10"
+                    />
+                  </div>
+
                   {/* Content */}
-                  <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
+                  <div 
+                    className={`flex-1 md:w-5/12 md:flex-none ${
+                      index % 2 === 0 
+                        ? 'md:text-right md:pr-8' 
+                        : 'md:text-left md:pl-8'
+                    }`}
+                  >
                     <motion.div
                       whileHover={{ scale: 1.02 }}
                       className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100"
                     >
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="text-3xl">{milestone.icon}</span>
+                      <div className={`flex items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'} mb-4`}>
+                        <span className="text-3xl mr-4 md:mr-0">{milestone.icon}</span>
                         <span className="text-2xl font-bold text-orange-600">{milestone.year}</span>
                       </div>
                       <h3 className="text-xl font-bold text-gray-800 mb-2">{milestone.title}</h3>
@@ -187,16 +206,16 @@ export default function Journey() {
                     </motion.div>
                   </div>
 
-                  {/* Timeline dot */}
-                  <div className="w-2/12 flex justify-center">
+                  {/* Desktop Timeline dot */}
+                  <div className="hidden md:flex w-2/12 justify-center">
                     <motion.div
                       whileHover={{ scale: 1.2 }}
                       className="w-4 h-4 bg-orange-600 rounded-full border-4 border-white shadow-lg z-10"
                     />
                   </div>
 
-                  {/* Empty space */}
-                  <div className="w-5/12"></div>
+                  {/* Empty space for desktop */}
+                  <div className="hidden md:block md:w-5/12" />
                 </motion.div>
               ))}
             </div>
