@@ -5,177 +5,182 @@ import Link from 'next/link'
 import { 
   ArrowLeftIcon, 
   DocumentArrowDownIcon, 
-  DocumentTextIcon,
-  ClipboardDocumentListIcon,
-  PresentationChartLineIcon
+  DocumentTextIcon
 } from '@heroicons/react/24/outline'
 
 export default function Download() {
   const downloads = [
     {
-      title: "Company Brochure",
-      description: "Complete overview of Nourish Bangladesh's products and services",
-      fileSize: "2.3 MB",
+      title: "Nourish 2025: Our Journey towards excellence",
+      description: "Explore our journey and vision for the future of poultry industry",
+      fileSize: "5.59 MB",
       type: "PDF",
-      icon: <DocumentTextIcon className="w-8 h-8" />,
-      color: "from-blue-400 to-blue-600"
+      icon: "📈",
+      color: "from-blue-400 to-blue-600",
+      filePath: "/download/Nourish 2025_Our Journey towards excellence.pdf"
     },
     {
-      title: "Product Catalog",
-      description: "Detailed information about all our feed products and specifications",
-      fileSize: "4.1 MB", 
+      title: "Nourish Circularity 26 Sustainability",
+      description: "Powering a Greener Tomorrow through sustainable practices",
+      fileSize: "4.0 MB",
       type: "PDF",
-      icon: <ClipboardDocumentListIcon className="w-8 h-8" />,
-      color: "from-green-400 to-green-600"
+      icon: "🌱",
+      color: "from-green-400 to-green-600",
+      filePath: "/download/Nourish Circularity & Sustainability Powering a Greener Tomorrow.pdf"
     },
     {
-      title: "Chick Care Guide",
-      description: "Essential guidelines for proper care of day-old chicks",
-      fileSize: "1.8 MB",
-      type: "PDF", 
-      icon: <DocumentTextIcon className="w-8 h-8" />,
-      color: "from-orange-400 to-orange-600"
-    },
-    {
-      title: "Technical Specifications",
-      description: "Detailed technical data sheets for all products",
-      fileSize: "3.2 MB",
+      title: "Poultry Sector in Bangladesh",
+      description: "Pathways for Ascending to New Heights 2025",
+      fileSize: "3.25 MB",
       type: "PDF",
-      icon: <ClipboardDocumentListIcon className="w-8 h-8" />,
-      color: "from-purple-400 to-purple-600"
+      icon: "📊",
+      color: "from-orange-400 to-orange-600",
+      filePath: "/download/Poultry Sector in Bangladesh-Pathways for Ascending to New Heights_2025_Low.pdf"
+    }
+  ]
+
+  const features = [
+    {
+      title: "Research Reports",
+      description: "Access detailed industry analysis and market research reports",
+      icon: "🔍"
     },
     {
-      title: "Quality Certificates",
-      description: "ISO certifications and quality assurance documents",
-      fileSize: "1.5 MB",
-      type: "PDF",
-      icon: <DocumentTextIcon className="w-8 h-8" />,
-      color: "from-teal-400 to-teal-600"
+      title: "Technical Guidelines",
+      description: "Step-by-step guides for optimal farming practices",
+      icon: "📋"
     },
     {
-      title: "Company Presentation",
-      description: "Corporate presentation showcasing our capabilities",
-      fileSize: "8.7 MB",
-      type: "PPT",
-      icon: <PresentationChartLineIcon className="w-8 h-8" />,
-      color: "from-red-400 to-red-600"
+      title: "Success Stories",
+      description: "Real examples of successful implementations and results",
+      icon: "🌟"
     }
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-100 via-orange-50 to-transparent opacity-60" />
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Breadcrumb */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-8"
+    <div className="min-h-screen bg-gradient-to-b from-orange-50 via-white to-orange-50 py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Back to Home */}
+        <div className="mb-8">
+          <Link
+            href="/"
+            className="inline-flex items-center text-orange-600 hover:text-orange-700 transition-colors"
           >
-            <Link 
-              href="/" 
-              className="inline-flex items-center text-orange-600 hover:text-orange-700 transition-colors"
-            >
-              <ArrowLeftIcon className="w-4 h-4 mr-2" />
-              Back to Home
-            </Link>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="w-20 h-1 bg-orange-600 mx-auto mb-6"
-            />
-            
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
-              Download <span className="text-orange-600">Center</span>
-            </h1>
-            
-            <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              Access our comprehensive library of brochures, technical documents, 
-              and resources to learn more about Nourish Bangladesh&apos;s products and services.
-            </p>
-          </motion.div>
+            <ArrowLeftIcon className="w-4 h-4 mr-2" />
+            Back to Home
+          </Link>
         </div>
-      </section>
 
-      {/* Downloads Grid */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+        {/* Hero Section */}
+        <div className="text-center mb-20">
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-5xl md:text-6xl font-bold text-gray-800 mb-6"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              Available <span className="text-orange-600">Downloads</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Click on any document below to download it instantly
-            </p>
-          </motion.div>
+            Resource <span className="text-orange-600">Center</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl text-gray-600 max-w-3xl mx-auto"
+          >
+            Access our comprehensive collection of guides, reports, and documentation to help you achieve optimal results in poultry farming
+          </motion.p>
+        </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {downloads.map((item, index) => (
+        {/* Features Section */}
+        <div className="mb-24">
+          <div className="grid md:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
               <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 group hover:shadow-xl transition-all duration-300 cursor-pointer"
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="flex items-start justify-between mb-6">
-                  <div className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300`}>
-                    {item.icon}
-                  </div>
-                  <div className="text-right">
-                    <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium">
-                      {item.type}
-                    </span>
-                    <div className="text-sm text-gray-500 mt-1">{item.fileSize}</div>
-                  </div>
-                </div>
-                
-                <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-orange-600 transition-colors duration-300">
-                  {item.title}
-                </h3>
-                
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  {item.description}
-                </p>
-                
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center justify-center w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-6 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  <DocumentArrowDownIcon className="w-5 h-5 mr-2" />
-                  Download Now
-                </motion.div>
+                <div className="text-4xl mb-4">{feature.icon}</div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">{feature.title}</h3>
+                <p className="text-gray-600">{feature.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
-      </section>
+
+        {/* Downloads Section */}
+        <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+              Available <span className="text-orange-600">Downloads</span>
+            </h2>
+            <p className="text-xl text-gray-600">
+              Click on any document below to download or view
+            </p>
+          </motion.div>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {downloads.map((item, index) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-shadow duration-300"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className={`w-12 h-12 flex items-center justify-center rounded-lg bg-gradient-to-r ${item.color} text-2xl`}>
+                  {item.icon}
+                </div>
+                <div>
+                  <span className="inline-block bg-orange-100 text-orange-700 px-2 py-1 rounded text-sm font-medium">
+                    {item.type}
+                  </span>
+                  <div className="text-sm text-gray-500 mt-1">
+                    File size: {item.fileSize}
+                  </div>
+                </div>
+              </div>
+
+              <h3 className="text-xl font-bold text-gray-800 mb-2">{item.title}</h3>
+              <p className="text-gray-600 mb-6">{item.description}</p>
+
+              <div className="flex gap-4">
+                <a
+                  href={item.filePath}
+                  download
+                  className="flex items-center justify-center flex-1 bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition-colors"
+                >
+                  <DocumentArrowDownIcon className="w-5 h-5 mr-2" />
+                  Download
+                </a>
+                {item.type === "PDF" && (
+                  <a
+                    href={item.filePath}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center flex-1 border-2 border-orange-600 text-orange-600 px-4 py-2 rounded-lg hover:bg-orange-50 transition-colors"
+                  >
+                    <DocumentTextIcon className="w-5 h-5 mr-2" />
+                    View
+                  </a>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
 
       {/* Additional Resources */}
-      <section className="py-20 bg-gradient-to-r from-gray-50 to-orange-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-gradient-to-r from-gray-50 to-orange-50 ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-15">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -246,7 +251,7 @@ export default function Download() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-3xl p-8 md:p-12 text-center"
+            className="bg-gradient-to-b from-gray-800 to-gray-900 rounded-3xl p-8 md:p-12 text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Stay Updated
@@ -258,7 +263,7 @@ export default function Download() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-6 py-3 rounded-full border-0 focus:ring-2 focus:ring-orange-300 focus:outline-none"
+                className="flex-1 px-6 py-3 rounded-full border-0 text-white focus:ring-2 focus:ring-gray-500 focus:outline-none bg-gray-700 placeholder-gray-400"
               />
               <motion.button
                 whileHover={{ scale: 1.05 }}
