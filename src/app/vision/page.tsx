@@ -101,6 +101,7 @@ export default function Vision() {
                   alt="Vision and Mission"
                   fill
                   className="object-cover"
+                  sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-orange-900/20 to-transparent" />
               </div>

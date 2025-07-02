@@ -98,6 +98,7 @@ export default function PeoplePlacePlanet() {
                                     alt="People Place Planet"
                                     fill
                                     className="object-cover"
+                                    sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-orange-900/20 to-transparent" />
                             </div>
@@ -168,6 +169,7 @@ export default function PeoplePlacePlanet() {
                                     fill
                                     className="object-cover"
                                     style={{ zIndex: 1 }}
+                                    sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                                 />
                                 {/* Gradient overlay */}
 
@@ -185,6 +187,7 @@ export default function PeoplePlacePlanet() {
                                         fill
                                         className="object-cover"
                                         style={{ zIndex: 0 }}
+                                        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                                     />
 
                                 </div>
@@ -251,6 +254,7 @@ export default function PeoplePlacePlanet() {
                                     fill
                                     className="object-cover"
                                     style={{ zIndex: 0 }}
+                                    sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-orange-400 to-transparent" />
                             </div>

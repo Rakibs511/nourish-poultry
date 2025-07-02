@@ -10,19 +10,19 @@ const testimonials = [
   {
     name: "Dr. Farhana Rahman",
     position: "President, Bangladesh Poultry Association",
-    image: "/images/testimonials/farhana.jpg",
+    image: "/images/user.webp",
     quote: "Nourish has set a benchmark in the poultry industry with their commitment to quality and innovation."
   },
   {
     name: "Mr. Anisur Rahman",
     position: "Editor, Agriculture Today",
-    image: "/images/testimonials/anisur.jpg",
+    image: "/images/user.webp",
     quote: "Their sustainable practices and community focus are truly exemplary in the sector."
   },
   {
     name: "Prof. Md. Shafiqul Islam",
     position: "Dept. of Fisheries, University of Dhaka",
-    image: "/images/testimonials/shafiqul.jpg",
+    image: "/images/user.webp",
     quote: "Nourish's approach to aquaculture and food safety is a model for others to follow."
   }
 ]
@@ -133,6 +133,7 @@ export default function Awards() {
                       fill
                       className="object-cover object-top"
                       priority
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   </div>
                   <div className="flex-1 text-center md:text-left">
@@ -317,6 +318,7 @@ export default function Awards() {
                       alt={testimonial.name}
                       fill
                       className="object-cover"
+                      sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                     />
                   </div>
                   <div>

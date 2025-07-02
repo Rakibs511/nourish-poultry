@@ -56,7 +56,7 @@ export default function ChatBot() {
         }, 5000)
 
         return () => clearTimeout(popupTimeout)
-    }, [])
+    }, [isOpen])
 
     const handleOpen = () => {
         setIsOpen(true)
@@ -122,6 +122,7 @@ export default function ChatBot() {
             <ChatPopup
                 message="Hello! I'm Nourish Assistant. How can I help you today?"
                 onOpen={handleOpen}
+                onClose={() => setShowPopup(false)}
                 show={showPopup}
             />
             {/* Chat Button */}

@@ -131,6 +131,7 @@ export default function About() {
                                     alt="About Nourish Bangladesh"
                                     fill
                                     className="object-contain p-12"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 />
                                 {/* <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300"></div> */}
                             </div>
@@ -176,6 +177,7 @@ export default function About() {
                                                         alt={section.title}
                                                         width={32}
                                                         height={32}
+                                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                                         className="w-full h-full object-contain filter brightness-0 invert"
                                                     />
                                                 </div>
