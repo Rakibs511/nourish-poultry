@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChatBubbleLeftRightIcon, PaperAirplaneIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import TypingAnimation from './TypingAnimation'
 
 interface Message {
     content: string
@@ -13,6 +14,7 @@ interface Message {
         url: string
         text: string
     }
+    isTyping?: boolean
 }
 
 export default function ChatBot() {
@@ -75,13 +77,16 @@ export default function ChatBot() {
                 throw new Error(data.error || 'Failed to get response')
             }
 
-            setMessages(prev => [...prev, {
+            const botMessage = {
                 content: data.response,
                 isBot: true,
                 timestamp: new Date(),
                 suggestions: data.suggestions,
-                pageLink: data.pageLink
-            }])
+                pageLink: data.pageLink,
+                isTyping: true
+            }
+            
+            setMessages(prev => [...prev, botMessage])
         } catch (error) {
             console.error('Chat error:', error)
             setMessages(prev => [...prev, {
@@ -141,35 +146,66 @@ export default function ChatBot() {
                                             : 'bg-amber-600 text-white'
                                             }`}
                                     >
-                                        <p className="text-sm">{message.content}</p>
-                                        <p className="text-xs mt-1 opacity-70">
-                                            {message.timestamp.toLocaleTimeString()}
-                                        </p>
-                                        {message.isBot && message.pageLink && (
-                                            <div className="mt-3">
-                                                <a
-                                                    href={message.pageLink.url}
-                                                    className="inline-block bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 transition-colors text-sm font-medium"
-                                                >
-                                                    {message.pageLink.text}
-                                                </a>
-                                            </div>
-                                        )}
-                                        {message.isBot && message.suggestions && (
-                                            <div className="mt-3 flex flex-wrap gap-2">
-                                                {message.suggestions.map((suggestion, idx) => (
-                                                    <button
-                                                        key={idx}
-                                                        onClick={() => {
-                                                            handleSendMessage(suggestion)
-                                                            setInputMessage('')
-                                                        }}
-                                                        className="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded-full hover:bg-amber-200 transition-colors whitespace-nowrap"
+                                        {message.isBot && message.isTyping ? (
+                                            <>
+                                                <TypingAnimation
+                                                    text={message.content}
+                                                    className="text-sm"
+                                                    onComplete={() => {
+                                                        setMessages(prev =>
+                                                            prev.map((msg, i) =>
+                                                                i === index ? { ...msg, isTyping: false } : msg
+                                                            )
+                                                        )
+                                                    }}
+                                                />
+                                                <p className="text-xs mt-1 opacity-70">
+                                                    {message.timestamp.toLocaleTimeString()}
+                                                </p>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <p className="text-sm">{message.content}</p>
+                                                <p className="text-xs mt-1 opacity-70">
+                                                    {message.timestamp.toLocaleTimeString()}
+                                                </p>
+                                                {message.isBot && message.pageLink && (
+                                                    <motion.div 
+                                                            initial={{ opacity: 0 }}
+                                                            animate={{ opacity: 1 }}
+                                                            transition={{ duration: 0.2 }}
+                                                        className="mt-3"
                                                     >
-                                                        {suggestion}
-                                                    </button>
-                                                ))}
-                                            </div>
+                                                        <a
+                                                            href={message.pageLink.url}
+                                                            className="inline-block bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 transition-colors text-sm font-medium"
+                                                        >
+                                                            {message.pageLink.text}
+                                                        </a>
+                                                    </motion.div>
+                                                )}
+                                                {message.isBot && message.suggestions && (
+                                                    <motion.div 
+                                                            initial={{ opacity: 0 }}
+                                                            animate={{ opacity: 1 }}
+                                                            transition={{ duration: 0.2 }}
+                                                        className="mt-3 flex flex-wrap gap-2"
+                                                    >
+                                                        {message.suggestions.map((suggestion, idx) => (
+                                                            <button
+                                                                key={idx}
+                                                                onClick={() => {
+                                                                    handleSendMessage(suggestion)
+                                                                    setInputMessage('')
+                                                                }}
+                                                                className="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded-full hover:bg-amber-200 transition-colors whitespace-nowrap"
+                                                            >
+                                                                {suggestion}
+                                                            </button>
+                                                        ))}
+                                                    </motion.div>
+                                                )}
+                                            </>
                                         )}
                                     </div>
                                 </motion.div>
