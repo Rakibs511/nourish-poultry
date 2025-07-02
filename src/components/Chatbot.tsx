@@ -23,23 +23,35 @@ function ChatBotContent() {
     const router = useRouter()
     const searchParams = useSearchParams()
     const [showPopup, setShowPopup] = useState(false)
+    const [mounted, setMounted] = useState(false)
     
     // Check if chat is open from URL
     const isOpen = searchParams.has('chat')
-    const [sessionId] = useState(() => Math.random().toString(36).substring(7))
-    const [messages, setMessages] = useState<Message[]>([
-        {
-            content: "Hello! I'm Nourish Assistant. How can I help you today?",
-            isBot: true,
-            timestamp: new Date(),
-            suggestions: [
-                'Tell me about your products',
-                'What feed products do you offer?',
-                'How can I contact you?',
-                'How can I become a dealer?'
-            ]
-        }
-    ])
+    const [sessionId, setSessionId] = useState('')
+
+    useEffect(() => {
+        setMounted(true)
+        // Generate sessionId on client side only
+        setSessionId(Math.random().toString(36).substring(7))
+    }, [])
+    const [messages, setMessages] = useState<Message[]>([])
+
+    useEffect(() => {
+        // Set initial message on client side only
+        setMessages([
+            {
+                content: "Hello! I'm Nourish Assistant. How can I help you today?",
+                isBot: true,
+                timestamp: new Date(),
+                suggestions: [
+                    'Tell me about your products',
+                    'What feed products do you offer?',
+                    'How can I contact you?',
+                    'How can I become a dealer?'
+                ]
+            }
+        ])
+    }, [])
     const [inputMessage, setInputMessage] = useState('')
     const [isLoading, setIsLoading] = useState(false)
     const messagesEndRef = useRef<HTMLDivElement>(null)
@@ -145,20 +157,25 @@ useEffect(() => {
 
     return (
         <>
-            <ChatPopup
-                message="Hello! I'm Nourish Assistant. How can I help you today?"
-                onOpen={handleOpen}
-                onClose={() => setShowPopup(false)}
-                show={showPopup}
-            />
+            {mounted && (
+                <ChatPopup
+                    message="Hello! I'm Nourish Assistant. How can I help you today?"
+                    onOpen={handleOpen}
+                    onClose={() => setShowPopup(false)}
+                    show={showPopup}
+                />
+            )}
             {/* Chat Button */}
             <motion.button
                 onClick={handleOpen}
-                className="fixed sm:bottom-6 sm:right-6 bottom-4 right-4 bg-amber-600 text-white rounded-full p-4 shadow-lg hover:bg-amber-700 transition-colors duration-200 z-10"
+                className="fixed sm:bottom-6 sm:right-6 bottom-4 right-4 bg-amber-600 text-white rounded-full p-4 shadow-lg hover:bg-amber-700 transition-colors duration-200 z-10 "
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
             >
                 <ChatBubbleLeftRightIcon className="w-6 h-6" />
+                {showPopup && (
+                    <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">1</span>
+                )}
             </motion.button>
 
             {/* Chat Window */}
