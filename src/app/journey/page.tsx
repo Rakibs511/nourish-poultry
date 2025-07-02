@@ -163,7 +163,7 @@ export default function Journey() {
             >
               <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-96 rounded-2xl overflow-hidden">
                 <Image
-                  src="/images/journey1.jpg"
+                  src="/images/Nourish.jpg"
                   alt="The Journey Begins"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

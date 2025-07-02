@@ -115,6 +115,8 @@ const Header = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
+                aria-label="Visit Nourish Bangladesh Facebook page"
+                title="Facebook"
                 className="text-blue-600 hover:text-blue-700 transition-colors duration-200"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -126,6 +128,8 @@ const Header = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
+                aria-label="Visit Nourish Bangladesh YouTube channel"
+                title="Nourish Bangladesh YouTube"
                 className="text-red-600 hover:text-red-700 transition-colors duration-200"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

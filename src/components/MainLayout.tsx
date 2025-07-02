@@ -1,10 +1,11 @@
 'use client';
 
-import { ReactNode, Suspense } from 'react';
+import { ReactNode, Suspense, lazy } from 'react';
 import dynamic from 'next/dynamic';
-import Header from './Header';
 import NetworkProvider from './NetworkProvider';
 
+// Lazy load components that are not immediately needed
+const Header = lazy(() => import('./Header'));
 const ChatBot = dynamic(() => import('./Chatbot'), {
     ssr: false,
     loading: () => null
@@ -17,7 +18,7 @@ interface MainLayoutProps {
 const MainLayout = ({ children }: MainLayoutProps) => {
     return (
         <div className="relative">
-            <Suspense fallback={null}>
+            <Suspense fallback={<div className="h-20" />}>
                 <Header />
             </Suspense>
             <NetworkProvider>
@@ -25,7 +26,9 @@ const MainLayout = ({ children }: MainLayoutProps) => {
                     {children}
                 </div>
             </NetworkProvider>
-            <ChatBot />
+            <Suspense fallback={null}>
+                <ChatBot />
+            </Suspense>
         </div>
     );
 };
