@@ -127,10 +127,10 @@ export default function About() {
                             <div className="relative h-96 rounded-3xl overflow-hidden shadow-2xl group">
                                 <div className="absolute inset-0 bg-gradient-to-b from-orange-100 to-white opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 <Image
-                                    src="/images/logo.png"
+                                    src="/images/Nourish.jpg"
                                     alt="About Nourish Bangladesh"
                                     fill
-                                    className="object-contain p-12"
+                                    className="object-cover"
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 />
                                 {/* <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300"></div> */}

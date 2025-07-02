@@ -13,6 +13,12 @@ import {
 } from '@heroicons/react/24/outline'
 
 export default function Career() {
+  const scrollToOpenPositions = () => {
+    const section = document.getElementById('open-positions')
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
   const openPositions = [
     {
       title: "Senior Poultry Nutritionist",
@@ -122,7 +128,9 @@ export default function Career() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+<button 
+                  onClick={scrollToOpenPositions}
+                  className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
                   View Open Positions
                 </button>
               </motion.div>
@@ -202,8 +210,8 @@ export default function Career() {
         </div>
       </section>
 
-      {/* Open Positions */}
-      <section className="py-20 bg-gradient-to-r from-gray-50 to-orange-50">
+{/* Open Positions */}
+      <section id="open-positions" className="py-20 bg-gradient-to-r from-gray-50 to-orange-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

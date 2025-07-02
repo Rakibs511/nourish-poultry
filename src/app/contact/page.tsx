@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { 
   ArrowLeftIcon, 
@@ -12,6 +12,7 @@ import {
 // Map location redirect functionality
 
 export default function Contact() {
+  const customSubjectRef = useRef<HTMLInputElement>(null)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,7 +21,14 @@ export default function Contact() {
     message: ''
   })
 
+  const [isOtherSubject, setIsOtherSubject] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+
+  useEffect(() => {
+    if (isOtherSubject && customSubjectRef.current) {
+      customSubjectRef.current.focus()
+    }
+  }, [isOtherSubject])
   const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({ 
     type: null, 
     message: '' 
@@ -70,9 +78,31 @@ export default function Contact() {
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target
+    
+    if (name === 'subject') {
+      if (e.target instanceof HTMLSelectElement) {
+        if (value === 'other') {
+          setIsOtherSubject(true)
+          setFormData({
+            ...formData,
+            [name]: ''
+          })
+          return
+        } else {
+          setIsOtherSubject(false)
+          setFormData({
+            ...formData,
+            [name]: value
+          })
+          return
+        }
+      }
+    }
+    
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     })
   }
 
@@ -270,22 +300,36 @@ export default function Contact() {
                     <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
                       Subject *
                     </label>
-                    <select
-                      id="subject"
-                      name="subject"
-                      required
-                      value={formData.subject}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
-                    >
-                      <option value="">Select a subject</option>
-                      <option value="general">General Inquiry</option>
-                      <option value="products">Product Information</option>
-                      <option value="partnership">Partnership Opportunity</option>
-                      <option value="career">Career Opportunities</option>
-                      <option value="support">Technical Support</option>
-                      <option value="other">Other</option>
-                    </select>
+                    {!isOtherSubject ? (
+                      <select
+                        id="subject"
+                        name="subject"
+                        required
+                        value={formData.subject}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+                      >
+                        <option value="">Select a subject</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="products">Product Information</option>
+                        <option value="partnership">Partnership Opportunity</option>
+                        <option value="career">Career Opportunities</option>
+                        <option value="support">Technical Support</option>
+                        <option value="other">Other</option>
+                      </select>
+                    ) : (
+                      <input
+                        ref={customSubjectRef}
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        required
+                        value={formData.subject}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+                        placeholder="Enter custom subject"
+                      />
+                    )}
                   </div>
 
                   <div>

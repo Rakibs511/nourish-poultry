@@ -1,11 +1,11 @@
 'use server';
 
 type ContactFormData = {
-  name: string;
-  email: string;
-  phone?: string;
-  subject: string;
-  message: string;
+    name: string;
+    email: string;
+    phone?: string;
+    subject: string;
+    message: string;
 };
 
 import { NextResponse } from 'next/server';
@@ -22,7 +22,7 @@ export async function POST(req: Request) {
     try {
         // Parse the request body
         const { name, email, phone, subject, message }: ContactFormData = await req.json();
-        console.log('Form data:', { name, email, phone, subject, message });
+        // console.log('Form data:', { name, email, phone, subject, message });
         // console.log('Received contact form submission:', { name, email, phone, subject, message });
 
         // Validate required fields
@@ -49,13 +49,13 @@ export async function POST(req: Request) {
                 pass: 'yiwvilujjltosmiu'            // Your Gmail app password
             }
         });
-        
+
         console.log('Created email transporter');
 
         // Email content
         const mailOptions = {
             from: process.env.EMAIL_USER,
-            to: 'rakibulhasan20162@gmail.com',
+            to: 'rakibulhasan20161@gmail.com',
             //   to: 'info@nourish.com.bd',
             subject: `Contact Form: ${subject}`,
             html: `
