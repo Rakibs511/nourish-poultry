@@ -26,7 +26,8 @@ export default function ChatBot() {
             suggestions: [
                 'Tell me about your products',
                 'What feed products do you offer?',
-                'How can I contact you?'
+                'How can I contact you?',
+                'How can I become a dealer?'
             ]
         }
     ])

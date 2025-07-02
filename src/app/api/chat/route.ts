@@ -17,7 +17,8 @@ const responses: Record<string, ResponseData> = {
         suggestions: [
             'Tell me about your products',
             'What services do you offer?',
-            'How can I contact you?'
+            'How can I contact you?',
+            'How can I become a dealer?',
         ]
     },
     howAreYou: {
@@ -108,14 +109,54 @@ const responses: Record<string, ResponseData> = {
             text: 'Go to Contact Page'
         }
     },
+    vision: {
+        patterns: ['vision', 'mission', 'values', 'goals'],
+        reply: 'Our vision is to be the leading poultry and aquaculture company in Bangladesh, committed to quality, sustainability, and innovation.',
+        suggestions: [
+            'Where are your offices?',
+            'How can I become a dealer?',
+            'Do you provide support?'
+        ],
+        pageLink: {
+            url: '/vision',
+            text: 'Go to Vision Page'
+        }
+    },
+    benefits: {
+        patterns: ['benefits', 'advantages', 'value', 'why choose us'],
+        reply: 'Choosing Nourish means opting for quality, reliability, and innovation. Our products are designed to enhance productivity and sustainability in your farming practices.',
+        suggestions: [
+            'Where are your offices?',
+            'How can I become a dealer?',
+            'Do you provide support?'
+        ],
+        pageLink: {
+            url: '/about',
+            text: 'Go to About Page'
+        }
+    },
+    requirements: {
+        patterns: ['requirement', 'prerequisites', 'qualifications', 'eligibility'],
+        reply: 'To become a dealer or partner with Nourish, you need to meet certain requirements including business experience, financial stability, and a commitment to quality. We evaluate each application on a case-by-case basis.',
+        suggestions: [
+            'Where are your offices?',
+            'How can I become a dealer?',
+            'Do you provide support?'
+        ],
+        pageLink: {
+            url: '/about',
+            text: 'Go to About Page'
+        }
+    },
     default: {
         reply: 'I\'m not sure about that. Could you please rephrase your question about our products or services?',
         suggestions: [
             'Tell me about your products',
             'What services do you offer?',
-            'How can I contact you?'
+            'How can I contact you?',
+            'How can I become a dealer?'
         ]
-    },
+    },  
 
     // ...................................
     careers: {
