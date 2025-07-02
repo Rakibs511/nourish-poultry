@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, Suspense } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChatBubbleLeftRightIcon, PaperAirplaneIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import TypingAnimation from './TypingAnimation'
@@ -19,7 +19,7 @@ interface Message {
     isTyping?: boolean
 }
 
-export default function ChatBot() {
+function ChatBotContent() {
     const router = useRouter()
     const searchParams = useSearchParams()
     const [showPopup, setShowPopup] = useState(false)
@@ -305,5 +305,13 @@ useEffect(() => {
                 )}
             </AnimatePresence>
         </>
+    )
+}
+
+export default function ChatBot() {
+    return (
+        <Suspense fallback={null}>
+            <ChatBotContent />
+        </Suspense>
     )
 }
