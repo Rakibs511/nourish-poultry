@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ChatBubbleLeftRightIcon, PaperAirplaneIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import TypingAnimation from './TypingAnimation'
 import ChatPopup from './ChatPopup'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 interface Message {
     content: string
@@ -19,8 +20,12 @@ interface Message {
 }
 
 export default function ChatBot() {
-    const [isOpen, setIsOpen] = useState(false)
+    const router = useRouter()
+    const searchParams = useSearchParams()
     const [showPopup, setShowPopup] = useState(false)
+    
+    // Check if chat is open from URL
+    const isOpen = searchParams.has('chat')
     const [sessionId] = useState(() => Math.random().toString(36).substring(7))
     const [messages, setMessages] = useState<Message[]>([
         {
@@ -47,20 +52,41 @@ export default function ChatBot() {
         scrollToBottom()
     }, [messages])
 
-    useEffect(() => {
-        // Show popup after 5 seconds of page load
+useEffect(() => {
+        // Handle browser back/forward
+        const handlePopState = () => {
+            if (!window.location.search.includes('chat')) {
+                setShowPopup(false)
+            }
+        }
+        window.addEventListener('popstate', handlePopState)
+
+        // Show popup after 5 seconds if chat is not open
         const popupTimeout = setTimeout(() => {
             if (!isOpen) {
                 setShowPopup(true)
             }
         }, 5000)
 
-        return () => clearTimeout(popupTimeout)
+        return () => {
+            clearTimeout(popupTimeout)
+            window.removeEventListener('popstate', handlePopState)
+        }
     }, [isOpen])
 
     const handleOpen = () => {
-        setIsOpen(true)
+        // Add chat parameter to URL
+        const params = new URLSearchParams(searchParams)
+        params.set('chat', 'open')
+        router.push(`?${params.toString()}`)
         setShowPopup(false)
+    }
+
+    const handleClose = () => {
+        // Remove chat parameter from URL
+        const params = new URLSearchParams(searchParams)
+        params.delete('chat')
+        router.push(params.toString() ? `?${params.toString()}` : window.location.pathname)
     }
 
     const handleSendMessage = async (message?: string) => {
@@ -148,7 +174,7 @@ export default function ChatBot() {
                         <div className="bg-amber-600 p-4 flex justify-between items-center sticky top-0 z-10">
                             <h3 className="text-white font-semibold">Nourish Assistant</h3>
                             <button
-                                onClick={() => setIsOpen(false)}
+                                onClick={handleClose}
                                 className="text-white hover:text-amber-200 transition-colors"
                             >
                                 <XMarkIcon className="w-6 h-6" />
