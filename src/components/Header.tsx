@@ -100,7 +100,7 @@ const Header = () => {
         opacity: isVisible ? 1 : 0 
       }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="bg-white/95 backdrop-blur-sm shadow-lg fixed top-0 left-0 right-0 z-50 h-[48px] sm:h-auto"
+      className="bg-white/95 backdrop-blur-sm shadow-lg fixed top-0 left-0 right-0 z-50 h-[64px] sm:h-auto"
     >
       {/* Top Widget Bar */}
       <div className="bg-orange-50/80 backdrop-blur-sm py-2 hidden sm:block">
@@ -139,7 +139,7 @@ const Header = () => {
 
       {/* Main Header */}
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
-        <div className="flex justify-between items-center h-12 sm:h-14 lg:h-16">
+        <div className="flex justify-between items-center h-16 sm:h-14 lg:h-16">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -151,7 +151,7 @@ const Header = () => {
                 alt="Nourish Bangladesh"
                 width={200}
                 height={80}
-                className="h-8 w-auto sm:h-9 md:h-10 lg:h-12"
+                className="h-10 w-auto sm:h-9 md:h-10 lg:h-12"
                 priority
               />
             </Link>

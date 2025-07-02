@@ -34,7 +34,7 @@ export default function ChatPopup({ message, onOpen, onClose, show }: ChatPopupP
                     initial={{ opacity: 0, x: 100 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: 100 }}
-                    className="fixed sm:bottom-24 sm:right-6 bottom-20 right-4 max-w-[300px] z-50"
+                    className="fixed sm:bottom-24 sm:right-6 bottom-20 right-4 max-w-[300px] z-20"
                 >
                     {/* Close button */}
                     <motion.button
