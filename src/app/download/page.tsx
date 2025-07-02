@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { useState } from 'react'
 import { 
   ArrowLeftIcon, 
   DocumentArrowDownIcon, 
@@ -9,6 +10,36 @@ import {
 } from '@heroicons/react/24/outline'
 
 export default function Download() {
+  const [downloading, setDownloading] = useState<string | null>(null);
+
+  const handleDownload = async (filePath: string) => {
+    try {
+      setDownloading(filePath);
+      const response = await fetch(`/api/download?file=${encodeURIComponent(filePath)}`);
+      
+      if (!response.ok) throw new Error('Download failed');
+      
+      // Create a blob from the stream
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      
+      // Create a temporary link and click it
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filePath.split('/').pop() || 'download';
+      document.body.appendChild(link);
+      link.click();
+      
+      // Cleanup
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Download error:', error);
+      alert('Failed to download file. Please try again.');
+    } finally {
+      setDownloading(null);
+    }
+  };
   const downloads = [
     {
       title: "Nourish 2025: Our Journey towards excellence",
@@ -153,14 +184,20 @@ export default function Download() {
               <p className="text-gray-600 mb-6">{item.description}</p>
 
               <div className="flex gap-4">
-                <a
-                  href={item.filePath}
-                  download
-                  className="flex items-center justify-center flex-1 bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition-colors"
+                <button
+                  onClick={() => handleDownload(item.filePath)}
+                  disabled={downloading === item.filePath}
+                  className={`
+                    flex items-center justify-center flex-1 px-4 py-2 rounded-lg transition-colors
+                    ${downloading === item.filePath
+                      ? 'bg-orange-400 cursor-not-allowed'
+                      : 'bg-orange-600 hover:bg-orange-700 text-white'
+                    }
+                  `}
                 >
-                  <DocumentArrowDownIcon className="w-5 h-5 mr-2" />
-                  Download
-                </a>
+                  <DocumentArrowDownIcon className={`w-5 h-5 mr-2 ${downloading === item.filePath ? 'animate-spin' : ''}`} />
+                  {downloading === item.filePath ? 'Downloading...' : 'Download'}
+                </button>
                 {item.type === "PDF" && (
                   <a
                     href={item.filePath}

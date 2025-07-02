@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import MainLayout from "../components/MainLayout";
+import dynamic from "next/dynamic";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   title: 'Nourish Bangladesh',
   description: 'Leading poultry and aquaculture company in Bangladesh'
 }
+
+const MainLayout = dynamic(() => import("../components/MainLayout"));
 
 export default function RootLayout({
   children,
