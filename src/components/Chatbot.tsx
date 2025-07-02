@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChatBubbleLeftRightIcon, PaperAirplaneIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import TypingAnimation from './TypingAnimation'
+import ChatPopup from './ChatPopup'
 
 interface Message {
     content: string
@@ -19,6 +20,7 @@ interface Message {
 
 export default function ChatBot() {
     const [isOpen, setIsOpen] = useState(false)
+    const [showPopup, setShowPopup] = useState(false)
     const [sessionId] = useState(() => Math.random().toString(36).substring(7))
     const [messages, setMessages] = useState<Message[]>([
         {
@@ -44,6 +46,22 @@ export default function ChatBot() {
     useEffect(() => {
         scrollToBottom()
     }, [messages])
+
+    useEffect(() => {
+        // Show popup after 5 seconds of page load
+        const popupTimeout = setTimeout(() => {
+            if (!isOpen) {
+                setShowPopup(true)
+            }
+        }, 5000)
+
+        return () => clearTimeout(popupTimeout)
+    }, [])
+
+    const handleOpen = () => {
+        setIsOpen(true)
+        setShowPopup(false)
+    }
 
     const handleSendMessage = async (message?: string) => {
         const messageToSend = message || inputMessage
@@ -101,9 +119,14 @@ export default function ChatBot() {
 
     return (
         <>
+            <ChatPopup
+                message="Hello! I'm Nourish Assistant. How can I help you today?"
+                onOpen={handleOpen}
+                show={showPopup}
+            />
             {/* Chat Button */}
             <motion.button
-                onClick={() => setIsOpen(true)}
+                onClick={handleOpen}
                 className="fixed sm:bottom-6 sm:right-6 bottom-4 right-4 bg-amber-600 text-white rounded-full p-4 shadow-lg hover:bg-amber-700 transition-colors duration-200 z-10"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
