@@ -2,15 +2,20 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import MainLayout from "../components/MainLayout";
+import { Suspense } from 'react';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: 'swap',
+  adjustFontFallback: true,
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: 'swap',
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
@@ -43,9 +48,12 @@ export default function RootLayout({
           href="https://fonts.gstatic.com" 
           crossOrigin="anonymous" 
         />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased custom-scrollbar`}>
-        <MainLayout>{children}</MainLayout>
+        <Suspense fallback={<div className="min-h-screen bg-white" />}>
+          <MainLayout>{children}</MainLayout>
+        </Suspense>
       </body>
     </html>
   );

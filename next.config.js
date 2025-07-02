@@ -1,9 +1,19 @@
 /** @type {import('next').NextConfig} */
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+
 const nextConfig = {
-  output: 'standalone',
   images: {
-    unoptimized: true,
-    domains: ['nourish.com.bd'],
+    formats: ['image/avif', 'image/webp'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'nourish.com.bd',
+      },
+    ],
+    deviceSizes: [360, 480, 640, 750, 828, 1080, 1200],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256],
   },
   poweredByHeader: false,
   compress: true,
@@ -22,6 +32,16 @@ const nextConfig = {
       transform: '@heroicons/react/24/solid/{{member}}',
     },
   },
+  
+  // Webpack configuration
+  webpack: (config, { isServer }) => {
+    // SVG configuration
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    })
+    return config
+  },
 }
 
-module.exports = nextConfig
+module.exports = withBundleAnalyzer(nextConfig)
