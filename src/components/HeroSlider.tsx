@@ -67,10 +67,13 @@ const HeroSlider = () => {
   }
 
   return (
-    <div
+    <section
       className="relative h-[75vh] lg:h-[85vh] overflow-hidden"
       onMouseEnter={() => setAutoPlay(false)}
       onMouseLeave={() => setAutoPlay(true)}
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Product highlights carousel"
     >
       <AnimatePresence mode="wait">
         <motion.div
@@ -153,14 +156,16 @@ const HeroSlider = () => {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-8 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 group"
+        className="absolute left-8 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+        aria-label="Previous slide"
       >
         <ChevronLeftIcon className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-8 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 group"
+        className="absolute right-8 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+        aria-label="Next slide"
       >
         <ChevronRightIcon className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
       </button>
@@ -171,7 +176,9 @@ const HeroSlider = () => {
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            aria-label={`Go to slide ${index + 1}`}
+            aria-current={index === currentSlide ? 'true' : 'false'}
+            className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 ${
               index === currentSlide 
                 ? 'bg-white scale-125' 
                 : 'bg-white/50 hover:bg-white/75'
@@ -181,7 +188,7 @@ const HeroSlider = () => {
       </div>
 
       {/* Animated Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-10" aria-hidden="true">
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
@@ -193,7 +200,7 @@ const HeroSlider = () => {
           className="absolute bottom-20 left-20 w-24 h-24 border-4 border-dashed border-green-400 rounded-full"
         />
       </div>
-      </div>
+      </section>
     )
 }
 

@@ -26,7 +26,12 @@ export default function TypingAnimation({ text, onComplete, className = '' }: Ty
     }, [currentIndex, text, onComplete]);
 
     return (
-        <div className={className}>
+        <div 
+            className={className}
+            role="status"
+            aria-live="polite"
+            aria-label="Typing message"
+        >
             {displayText}
         </div>
     );

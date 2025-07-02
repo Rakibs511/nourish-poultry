@@ -30,11 +30,13 @@ export default function ChatPopup({ message, onOpen, onClose, show }: ChatPopupP
     return (
         <AnimatePresence>
             {show && (
-                <motion.div
-                    initial={{ opacity: 0, x: 100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 100 }}
-className="fixed sm:bottom-24 sm:right-6 bottom-20 right-4 max-w-[300px] z-20 hidden sm:block"
+    <motion.div
+      initial={{ opacity: 0, x: 100 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 100 }}
+      className="fixed sm:bottom-24 sm:right-6 bottom-20 right-4 max-w-[300px] z-20 hidden sm:block"
+      role="dialog"
+      aria-label="Chat popup notification"
                 >
                     {/* Close button */}
                     <motion.button
@@ -42,15 +44,16 @@ className="fixed sm:bottom-24 sm:right-6 bottom-20 right-4 max-w-[300px] z-20 hi
                             e.stopPropagation();
                             onClose();
                         }}
-                        className="absolute -top-2 -right-2 bg-white rounded-full p-1.5 shadow-md hover:bg-gray-50 z-10 border border-gray-100"
+                        className="absolute -top-2 -right-2 bg-white rounded-full p-1.5 shadow-md hover:bg-gray-50 z-10 border border-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
+                        aria-label="Close chat popup"
                     >
                         <XMarkIcon className="w-4 h-4 text-gray-500" />
                     </motion.button>
                     <motion.div
                         onClick={onOpen}
-                        className="relative bg-white rounded-xl shadow-lg p-4 cursor-pointer hover:shadow-xl transition-shadow border-2"
+                        className="relative bg-white rounded-xl shadow-lg p-4 cursor-pointer hover:shadow-xl transition-shadow border-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
                         style={{
                             animation: 'border-pulse 2s ease-in-out infinite'
                         }}

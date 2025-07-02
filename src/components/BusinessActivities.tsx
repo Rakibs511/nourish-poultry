@@ -92,7 +92,12 @@ const BusinessActivities = () => {
   }
 
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section 
+      ref={ref} 
+      className="py-20 bg-gradient-to-b from-white to-gray-50"
+      role="region"
+      aria-labelledby="business-activities-heading"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -108,7 +113,7 @@ const BusinessActivities = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="w-20 h-1 bg-gradient-to-r from-orange-500 to-red-500 mx-auto mb-4"
           />
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          <h2 id="business-activities-heading" className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
             Business <span className="text-orange-600">Activities</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -122,6 +127,8 @@ const BusinessActivities = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          role="list"
+          aria-label="Business activities grid"
         >
           {businessActivities.map((activity, index) => (
             <motion.div
@@ -135,12 +142,18 @@ const BusinessActivities = () => {
               onHoverStart={() => setHoveredCard(index)}
               onHoverEnd={() => setHoveredCard(null)}
               className="group relative"
+              role="listitem"
+              aria-labelledby={`activity-title-${activity.title.toLowerCase().replace(/\s+/g, '-')}`}
             >
-              <Link href={activity.href} className="block h-full">
+              <Link 
+                href={activity.href} 
+                className="block h-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-2xl"
+                aria-labelledby={`activity-title-${activity.title.toLowerCase().replace(/\s+/g, '-')}`}
+              >
                 <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 p-6 h-full border border-gray-100 overflow-hidden relative">
                   
                   {/* Background Pattern */}
-                  <div className="absolute inset-0 opacity-5">
+                  <div className="absolute inset-0 opacity-5" aria-hidden="true">
                     <div className="absolute top-0 right-0 w-32 h-32 transform rotate-45 translate-x-16 -translate-y-16">
                       <div className={`w-full h-full bg-gradient-to-r ${activity.color} rounded-lg`} />
                     </div>
@@ -154,6 +167,7 @@ const BusinessActivities = () => {
                         rotate: [0, 2, -2, 0]
                       } : {}}
                       transition={{ duration: 0.8 }}
+                      aria-hidden="true"
                       className="w-full h-40 rounded-xl overflow-hidden shadow-lg mx-auto relative group"
                     >
                       <Image
@@ -210,7 +224,10 @@ const BusinessActivities = () => {
 
                   {/* Content */}
                   <div className="text-center relative z-10">
-                    <h3 className="text-lg font-bold text-gray-800 mb-3 group-hover:text-orange-600 transition-colors duration-300 leading-tight">
+                    <h3 
+                      id={`activity-title-${activity.title.toLowerCase().replace(/\s+/g, '-')}`}
+                      className="text-lg font-bold text-gray-800 mb-3 group-hover:text-orange-600 transition-colors duration-300 leading-tight"
+                    >
                       {activity.title}
                     </h3>
                     

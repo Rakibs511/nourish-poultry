@@ -78,7 +78,7 @@ export default function Career() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
+    <main className="min-h-screen bg-gradient-to-b from-orange-50 to-white" role="main" aria-labelledby="career-main-heading">
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-orange-100 via-orange-50 to-transparent opacity-60" />
@@ -113,7 +113,7 @@ export default function Career() {
                 className="w-20 h-1 bg-orange-600 mb-6"
               />
               
-              <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
+              <h1 id="career-main-heading" className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
                 Build Your
                 <span className="text-orange-600 block">Career</span>
               </h1>
@@ -130,7 +130,8 @@ export default function Career() {
               >
 <button 
                   onClick={scrollToOpenPositions}
-                  className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                  className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+                  aria-label="View open positions">
                   View Open Positions
                 </button>
               </motion.div>
@@ -211,7 +212,11 @@ export default function Career() {
       </section>
 
 {/* Open Positions */}
-      <section id="open-positions" className="py-20 bg-gradient-to-r from-gray-50 to-orange-50">
+      <section 
+        id="open-positions" 
+        className="py-20 bg-gradient-to-r from-gray-50 to-orange-50"
+        aria-labelledby="open-positions-heading"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -220,7 +225,7 @@ export default function Career() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+            <h2 id="open-positions-heading" className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
               Open <span className="text-orange-600">Positions</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -281,7 +286,8 @@ export default function Career() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="w-full lg:w-auto bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
+                      className="w-full lg:w-auto bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+                      aria-label={`Apply for ${position.title} position`}
                     >
                       Apply Now
                       <ArrowRightIcon className="w-4 h-4 ml-2" />
@@ -365,13 +371,15 @@ export default function Career() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="bg-white text-orange-600 px-8 py-4 rounded-full font-semibold hover:bg-orange-50 transition-colors duration-300"
+                className="bg-white text-orange-600 px-8 py-4 rounded-full font-semibold hover:bg-orange-50 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+                aria-label="Send your resume through contact form"
               >
                 Send Your Resume
               </Link>
               <Link
                 href="mailto:careers@nourish.com.bd"
-                className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-orange-600 transition-colors duration-300"
+                className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-orange-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900"
+                aria-label="Send email directly to careers@nourish.com.bd"
               >
                 Email Us Directly
               </Link>
@@ -379,6 +387,6 @@ export default function Career() {
           </motion.div>
         </div>
       </section>
-    </div>
+    </main>
   )
 }

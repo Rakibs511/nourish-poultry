@@ -43,10 +43,12 @@ export default function About() {
     ]
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
+        <main role="main" aria-labelledby="aboutPageMain" className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
+            <h1 id="aboutPageMain" className="sr-only">About Page</h1>
             {/* Hero Section */}
-            <section className="relative pt-32 pb-20 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-100 via-orange-50 to-transparent opacity-60" />
+            <section className="relative pt-32 pb-20 overflow-hidden" aria-labelledby="heroSection">
+                <h2 id="heroSection" className="sr-only">About Nourish Bangladesh Overview</h2>
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-100 via-orange-50 to-transparent opacity-60" role="presentation" aria-hidden="true" />
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Breadcrumb */}
@@ -58,9 +60,10 @@ export default function About() {
                     >
                         <Link
                             href="/"
-                            className="inline-flex items-center text-orange-600 hover:text-orange-700 transition-colors"
+                            className="inline-flex items-center text-orange-600 hover:text-orange-700 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded"
+                            aria-label="Navigate back to home page"
                         >
-                            <ArrowLeftIcon className="w-4 h-4 mr-2" />
+                            <ArrowLeftIcon className="w-4 h-4 mr-2" aria-hidden="true" />
                             Back to Home
                         </Link>
                     </motion.div>
@@ -142,7 +145,7 @@ export default function About() {
             </section>
 
             {/* About Sections */}
-            <section ref={ref} className="py-20">
+            <section ref={ref} className="py-20" aria-labelledby="aboutSectionsTitle">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -150,7 +153,7 @@ export default function About() {
                         transition={{ duration: 0.8 }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+                        <h2 id="aboutSectionsTitle" className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
                             Learn More <span className="text-orange-600">About Us</span>
                         </h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -168,11 +171,17 @@ export default function About() {
                                 whileHover={{ y: -5, scale: 1.02 }}
                                 className="group"
                             >
-                                <Link href={section.href} className="block">
+                                <Link
+                                    href={section.href}
+                                    className="block focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-3xl"
+                                    aria-label={`Learn more about ${section.title}`}>
                                     <div className="bg-white rounded-3xl shadow-lg p-8 border border-gray-100 group-hover:shadow-xl transition-all duration-300 h-full">
                                         <div className="flex items-start space-x-6">
                                             <div className="flex-shrink-0">
-                                                <div className={`w-16 h-16 bg-gradient-to-r ${section.color} rounded-2xl flex items-center justify-center p-3 group-hover:scale-110 transition-transform duration-300`}>
+                                                <div
+                                                    className={`w-16 h-16 bg-gradient-to-r ${section.color} rounded-2xl flex items-center justify-center p-3 group-hover:scale-110 transition-transform duration-300`}
+                                                    role="presentation"
+                                                    aria-hidden="true">
                                                     <Image
                                                         src={section.icon}
                                                         alt={section.title}
@@ -218,7 +227,7 @@ export default function About() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 bg-gradient-to-b from-gray-800 to-gray-900">
+            <section className="py-20 bg-gradient-to-b from-gray-800 to-gray-900" aria-labelledby="ctaTitle">
                 <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -226,7 +235,7 @@ export default function About() {
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-4xl font-bold text-white mb-6">
+                        <h2 id="ctaTitle" className="text-4xl font-bold text-white mb-6">
                             Ready to Partner With Us?
                         </h2>
                         <p className="text-xl text-orange-100 mb-8">
@@ -235,13 +244,15 @@ export default function About() {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link
                                 href="/contact"
-                                className="bg-white text-orange-600 px-8 py-4 rounded-full font-semibold hover:bg-orange-50 transition-colors duration-300"
+                                className="bg-white text-orange-600 px-8 py-4 rounded-full font-semibold hover:bg-orange-50 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                aria-label="Contact us to learn more about partnership opportunities"
                             >
                                 Get In Touch
                             </Link>
                             <Link
                                 href="/career"
-                                className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-orange-600 transition-colors duration-300"
+                                className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-orange-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                aria-label="View career opportunities and join our team"
                             >
                                 Join Our Team
                             </Link>
@@ -249,6 +260,6 @@ export default function About() {
                     </motion.div>
                 </div>
             </section>
-        </div>
+        </main>
     )
 }

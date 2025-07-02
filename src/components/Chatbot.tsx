@@ -168,6 +168,7 @@ useEffect(() => {
             {/* Chat Button */}
             <motion.button
                 onClick={handleOpen}
+                aria-label="Open chat popup"
                 className="fixed sm:bottom-6 sm:right-6 bottom-4 right-4 bg-amber-600 text-white rounded-full p-4 shadow-lg hover:bg-amber-700 transition-colors duration-200 z-10 "
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}

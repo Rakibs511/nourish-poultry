@@ -50,7 +50,8 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-gradient-to-b from-gray-800 to-gray-900 text-white">
+<footer className="bg-gradient-to-b from-gray-800 to-gray-900 text-white" role="contentinfo" aria-labelledby="footer-heading">
+      <h2 id="footer-heading" className="sr-only">Footer</h2>
       
       {/* Back to Top Button */}
       <motion.div
@@ -64,7 +65,8 @@ const Footer = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            className="text-white font-semibold tracking-wider hover:text-orange-200 transition-colors duration-300"
+            className="text-white font-semibold tracking-wider hover:text-orange-200 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded-md px-4 py-2"
+            aria-label="Scroll back to top"
           >
             BACK TO TOP
           </motion.button>
@@ -86,7 +88,7 @@ const Footer = () => {
               onHoverEnd={() => setHoveredSection(null)}
               className="space-y-6"
             >
-              <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2" role="heading" aria-level={2}>
                 <motion.div
                   animate={hoveredSection === 'contact' ? { rotate: 360 } : {}}
                   transition={{ duration: 0.8 }}
@@ -113,7 +115,7 @@ const Footer = () => {
                       initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
-                      className="text-gray-300 hover:text-orange-400 transition-colors duration-300 cursor-pointer"
+                className="text-gray-300 hover:text-orange-400 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded-md px-2"
                     >
                       {phone}
                     </motion.p>
@@ -143,7 +145,7 @@ const Footer = () => {
                 <h3 className="text-xl font-bold">About</h3>
               </div>
               
-              <ul className="space-y-3">
+              <ul className="space-y-3" role="list" aria-label="About links">
                 {aboutLinks.map((link, index) => (
                   <motion.li
                     key={link.name}
@@ -155,7 +157,7 @@ const Footer = () => {
                   >
                     <Link
                       href={link.href}
-                      className="text-gray-300 hover:text-orange-400 transition-all duration-300 hover:translate-x-2 block"
+                      className="text-gray-300 hover:text-orange-400 transition-all duration-300 hover:translate-x-2 block focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded-md px-2"
                     >
                       {link.name}
                     </Link>
@@ -185,7 +187,7 @@ const Footer = () => {
                 <h3 className="text-xl font-bold">Products</h3>
               </div>
               
-              <ul className="space-y-3">
+              <ul className="space-y-3" role="list" aria-label="Product links">
                 {productLinks.map((link, index) => (
                   <motion.li
                     key={link.name}
@@ -197,7 +199,7 @@ const Footer = () => {
                   >
                     <Link
                       href={link.href}
-                      className="text-gray-300 hover:text-orange-400 transition-all duration-300 hover:translate-x-2 block"
+                      className="text-gray-300 hover:text-orange-400 transition-all duration-300 hover:translate-x-2 block focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded-md px-2"
                     >
                       {link.name}
                     </Link>
@@ -230,7 +232,7 @@ const Footer = () => {
                 <h3 className="text-xl font-bold">Gallery</h3>
               </div>
               
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-4 gap-2" role="region" aria-label="Gallery images">
                 {galleryImages.map((image, index) => (
                   <motion.div
                     key={index}
@@ -315,7 +317,8 @@ const Footer = () => {
               ease: "easeInOut",
               delay: i * 1.5
             }}
-            className="absolute w-24 h-24 bg-orange-600 rounded-full opacity-10"
+              className="absolute w-24 h-24 bg-orange-600 rounded-full opacity-10"
+              aria-hidden="true"
             style={{
               left: '50%',
               top: '50%'

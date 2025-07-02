@@ -107,10 +107,12 @@ export default function Contact() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
+    <main role="main" aria-labelledby="contactPageTitle" className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
+      <h1 id="contactPageTitle" className="sr-only">Contact Nourish Bangladesh</h1>
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-100 via-orange-50 to-transparent opacity-60" />
+      <section className="relative pt-32 pb-20 overflow-hidden" aria-labelledby="heroSection">
+        <h2 id="heroSection" className="sr-only">Contact Information Overview</h2>
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-100 via-orange-50 to-transparent opacity-60" role="presentation" aria-hidden="true" />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
@@ -155,7 +157,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Information & Form */}
-      <section className="py-20">
+      <section className="py-20" aria-labelledby="contactInfoTitle formTitle">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
             
@@ -165,7 +167,7 @@ export default function Contact() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl font-bold text-gray-800 mb-8">Get In Touch</h2>
+              <h2 id="contactInfoTitle" className="text-3xl font-bold text-gray-800 mb-8">Get In Touch</h2>
               
               <div className="space-y-8">
                 {/* Address */}
@@ -189,7 +191,7 @@ export default function Contact() {
                   className="flex items-start space-x-4 p-6 bg-white rounded-2xl shadow-lg border border-gray-100"
                 >
                   <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <PhoneIcon className="w-6 h-6 text-green-600" />
+                    <PhoneIcon className="w-6 h-6 text-green-600" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-800 mb-2">Phone</h3>
@@ -206,7 +208,7 @@ export default function Contact() {
                   className="flex items-start space-x-4 p-6 bg-white rounded-2xl shadow-lg border border-gray-100"
                 >
                   <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <EnvelopeIcon className="w-6 h-6 text-blue-600" />
+                    <EnvelopeIcon className="w-6 h-6 text-blue-600" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-800 mb-2">Email</h3>
@@ -223,7 +225,7 @@ export default function Contact() {
                   className="flex items-start space-x-4 p-6 bg-white rounded-2xl shadow-lg border border-gray-100"
                 >
                   <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <ClockIcon className="w-6 h-6 text-purple-600" />
+                    <ClockIcon className="w-6 h-6 text-purple-600" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-800 mb-2">Business Hours</h3>
@@ -244,9 +246,9 @@ export default function Contact() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
-                <h2 className="text-3xl font-bold text-gray-800 mb-8">Send us a Message</h2>
+                <h2 id="formTitle" className="text-3xl font-bold text-gray-800 mb-8">Send us a Message</h2>
                 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6" aria-label="Contact Form">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -352,9 +354,9 @@ export default function Contact() {
                     <motion.div
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className={`p-4 rounded-xl mb-4 ${
-                        submitStatus.type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
-                      }`}
+                      className={`p-4 rounded-xl mb-4 ${submitStatus.type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}
+                      role="alert"
+                      aria-live="polite"
                     >
                       {submitStatus.message}
                     </motion.div>
@@ -365,7 +367,8 @@ export default function Contact() {
                     disabled={isSubmitting}
                     whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                     whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                    className={`w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold py-4 px-8 rounded-xl shadow-lg transition-all duration-300 ${
+                    aria-live="polite"
+                    className={`w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold py-4 px-8 rounded-xl shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 ${
                       isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:shadow-xl'
                     }`}
                   >
@@ -379,7 +382,7 @@ export default function Contact() {
       </section>
 
       {/* Map Section */}
-      <section className="py-20 bg-gradient-to-r from-gray-50 to-orange-50">
+      <section className="py-20 bg-gradient-to-r from-gray-50 to-orange-50" aria-labelledby="mapSectionTitle">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -388,7 +391,7 @@ export default function Contact() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+            <h2 id="mapSectionTitle" className="text-4xl font-bold text-gray-800 mb-4">
               Find <span className="text-orange-600">Us</span>
             </h2>
             <p className="text-xl text-gray-600">
@@ -407,6 +410,15 @@ export default function Contact() {
               className="relative h-96 rounded-3xl overflow-hidden cursor-pointer group"
               whileHover={{ scale: 1.01 }}
               onClick={() => window.open('https://www.google.com/maps/search/?api=1&query=House+%2339,+Nourish+Poultry+Hatchery+Limited,+Sonargaon+Janapath+Road+Sector+%2307,+Uttara,+Dhaka+1230', '_blank')}
+              role="button"
+              tabIndex={0}
+              aria-label="View location on Google Maps"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  window.open('https://www.google.com/maps/search/?api=1&query=House+%2339,+Nourish+Poultry+Hatchery+Limited,+Sonargaon+Janapath+Road+Sector+%2307,+Uttara,+Dhaka+1230', '_blank');
+                }
+              }}
             >
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3648.358444716831!2d90.39361927605438!3d23.874269884528926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c43db8f853d5%3A0x3848eb2f66a7b10c!2sNourish%20Poultry%20Hatchery%20Limited!5e0!3m2!1sen!2s!4v1629308000000!5m2!1sen!2s&disableDefaultUI=1"
@@ -414,6 +426,8 @@ export default function Contact() {
                 allowFullScreen={false}
                 loading="lazy"
                 style={{ pointerEvents: 'none' }}
+                title="Nourish Poultry Hatchery Limited location map"
+                aria-label="Interactive map showing Nourish Poultry Hatchery Limited location in Uttara, Dhaka"
               />
               <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -425,6 +439,6 @@ export default function Contact() {
           </motion.div>
         </div>
       </section>
-    </div>
+    </main>
   )
 }

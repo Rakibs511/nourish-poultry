@@ -28,7 +28,7 @@ const NoInternet = () => {
             }
         } catch (error) {
             // If fetch fails, we're still offline
-            console.log('Connection check failed',error);
+            console.log('Connection check failed', error);
         } finally {
             setIsChecking(false);
         }
@@ -42,8 +42,8 @@ const NoInternet = () => {
 
     return (
         <ClientOnly>
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-50">
-                <motion.div 
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-50" role="alertdialog" aria-labelledby="no-internet-heading" aria-describedby="no-internet-description">;
+                <motion.div
                     className="relative flex flex-col items-center p-8 bg-white rounded-2xl shadow-xl max-w-md w-full mx-4"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -53,7 +53,7 @@ const NoInternet = () => {
                         className="mb-6 relative"
                         initial={{ scale: 0.5, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
-                        transition={{ 
+                        transition={{
                             duration: 0.8,
                             ease: [0.22, 1, 0.36, 1],
                             delay: 0.2
@@ -62,34 +62,34 @@ const NoInternet = () => {
                         <div className="bg-orange-100 p-4 rounded-full">
                             <MdSignalWifiOff className="w-12 h-12 text-orange-600" />
                         </div>
-                        <motion.div 
+                        <motion.div
                             className="absolute -inset-4 bg-orange-100 rounded-full animate-pulse-slow -z-10 opacity-50"
-                            animate={{ 
+                            animate={{
                                 scale: [1, 1.2, 1],
                                 opacity: [0.5, 0.2, 0.5]
                             }}
-                            transition={{ 
+                            transition={{
                                 duration: 2,
                                 repeat: Infinity,
                                 ease: "easeInOut"
                             }}
                         />
                     </motion.div>
-                    
+
                     <motion.div
                         className="text-center space-y-3 mb-8"
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ 
+                        transition={{
                             duration: 0.6,
                             ease: [0.22, 1, 0.36, 1],
                             delay: 0.4
                         }}
                     >
-                        <h2 className="text-2xl font-semibold text-gray-900">
+                        <h2 id="no-internet-heading" className="text-2xl font-semibold text-gray-900">;
                             No Internet Connection
                         </h2>
-                        <p className="text-gray-600">
+                        <p id="no-internet-description" className="text-gray-600">;
                             Please check your network connection and try again
                         </p>
                     </motion.div>
@@ -99,18 +99,18 @@ const NoInternet = () => {
                         disabled={isChecking}
                         className={`
                             relative overflow-hidden group
-                            px-6 py-3 rounded-xl
+                            px-6 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2
                             text-sm font-semibold
                             transition-all duration-300
                             shadow-glow
-                            ${isChecking 
-                                ? 'bg-orange-400 cursor-not-allowed' 
+                            ${isChecking
+                                ? 'bg-orange-400 cursor-not-allowed'
                                 : 'bg-nourish-gradient text-white hover:shadow-lg'
-                            }
-                        `}
+                            }`
+                        }
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ 
+                        transition={{
                             duration: 0.6,
                             ease: [0.22, 1, 0.36, 1],
                             delay: 0.6

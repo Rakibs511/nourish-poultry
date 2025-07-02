@@ -162,7 +162,7 @@ const Header = () => {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex space-x-8">
+          <nav className="hidden lg:flex space-x-8" aria-label="Main navigation">
             {menuItems.map((item, index) => (
               <div
                 key={item.name}
@@ -233,7 +233,10 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 rounded-md text-gray-700 hover:text-orange-600 focus:outline-none"
+            className="lg:hidden p-2 rounded-md text-gray-700 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+            aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
           >
             {!isMenuOpen ?  (
               <Bars3Icon className="h-6 w-6" />
@@ -251,6 +254,10 @@ const Header = () => {
             exit={{ x: '-100%' }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             className="lg:hidden fixed top-0 left-0 w-[80%] min-h-screen bg-white shadow-xl z-50 overflow-y-auto"
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Main menu"
           >
             <div className="p-4 bg-orange-50 flex justify-between items-center">
               <div className="flex-1">
@@ -265,7 +272,8 @@ const Header = () => {
               </div>
               <button
                 onClick={() => setIsMenuOpen(false)}
-                className="p-2 rounded-md text-gray-700 hover:text-orange-600 focus:outline-none"
+                className="p-2 rounded-md text-gray-700 hover:text-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+                aria-label="Close menu"
               >
                 <XMarkIcon className="h-6 w-6" />
               </button>

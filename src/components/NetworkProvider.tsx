@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 
 const NoInternetDetector = dynamic(
   () => import('./NoInternetDetector'),
-  { ssr: false }
+  { ssr: false, loading: () => null }
 );
 
 interface NetworkProviderProps {

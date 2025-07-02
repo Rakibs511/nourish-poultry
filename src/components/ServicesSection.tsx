@@ -81,7 +81,7 @@ const ServicesSection = () => {
   }
 
   return (
-    <section id="services-section" ref={ref} className="py-20 bg-gradient-to-b from-gray-50 to-white scroll-mt-24">
+    <section id="services-section" ref={ref} className="py-20 bg-gradient-to-b from-gray-50 to-white scroll-mt-24" role="region" aria-labelledby="services-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -97,6 +97,7 @@ const ServicesSection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="w-20 h-1 bg-orange-600 mx-auto mb-4"
           />
+          <h2 id="services-heading" className="sr-only">Our Services</h2>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
             About <span className="text-orange-600">Nourish</span>
           </h2>
@@ -114,7 +115,9 @@ const ServicesSection = () => {
         >
           {services.map((service) => (
             <motion.div
-              key={service.title}
+            key={service.title}
+            role="region"
+            aria-labelledby={`service-title-${service.title}`}
               variants={cardVariants}
               whileHover={{ y: -10, scale: 1.02 }}
               className="group"
@@ -131,19 +134,20 @@ const ServicesSection = () => {
                     whileHover="hover"
                     className="mb-6"
                   >
-                    <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center text-2xl shadow-lg p-3`}>
-                      <Image
-                        src={service.icon}
-                        alt={service.title}
-                        width={60}
-                        height={60}
-                        className="w-full h-full object-contain filter brightness-0 invert"
-                      />
+                <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center text-2xl shadow-lg p-3`}>
+                  <Image
+                    src={service.icon}
+                    alt=""
+                    width={60}
+                    height={60}
+                    className="w-full h-full object-contain filter brightness-0 invert"
+                    aria-hidden="true"
+                  />
                     </div>
                   </motion.div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-gray-800 mb-4 group-hover:text-orange-600 transition-colors duration-300">
+                  <h3 id={`service-title-${service.title}`} className="text-xl font-bold text-gray-800 mb-4 group-hover:text-orange-600 transition-colors duration-300">
                     {service.title}
                   </h3>
                   
