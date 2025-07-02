@@ -1,12 +1,13 @@
 'use client';
 
-import { ReactNode } from 'react';
+import { ReactNode, Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import Header from './Header';
 import NetworkProvider from './NetworkProvider';
 
 const ChatBot = dynamic(() => import('./Chatbot'), {
-    ssr: false
+    ssr: false,
+    loading: () => null
 });
 
 interface MainLayoutProps {
@@ -16,7 +17,9 @@ interface MainLayoutProps {
 const MainLayout = ({ children }: MainLayoutProps) => {
     return (
         <div className="relative">
-            <Header />
+            <Suspense fallback={null}>
+                <Header />
+            </Suspense>
             <NetworkProvider>
                 <div className="main-content">
                     {children}

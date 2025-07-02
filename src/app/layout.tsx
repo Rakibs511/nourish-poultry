@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import dynamic from "next/dynamic";
+import MainLayout from "../components/MainLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,8 +18,6 @@ export const metadata: Metadata = {
   description: 'Leading poultry and aquaculture company in Bangladesh'
 }
 
-const MainLayout = dynamic(() => import("../components/MainLayout"));
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,9 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased custom-scrollbar`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased custom-scrollbar`}>
         <MainLayout>{children}</MainLayout>
       </body>
     </html>
